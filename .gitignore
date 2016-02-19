@@ -1,0 +1,63 @@
+# Ignore general stuff, e.g. Eclipse, NetBeans, Mac OS X
+#  This section should be used within all projects.
+/.buildpath
+/.project
+/.settings
+/.idea
+/nbproject
+
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.svn
+.Trashes
+*.spool
+*.swp
+ehthumbs.db
+[Tt]humbs.db
+*.sublime-project
+*.sublime-workspace
+.jasy
+
+# User defined development folder to ignore. Use this to put whatever you want in it.
+.devlocal
+
+# ZEND 2 specific ignores
+source/app_*/data/smarty/templates_c/*.php
+htdocs/INSTALL.md
+htdocs/LICENSE.txt
+htdocs/README.md
+htdocs/README-GIT.md
+htdocs/CONTRIBUTING.md
+htdocs/CHANGELOG.md
+htdocs/demos/*
+htdocs/extras/documentation
+htdocs/dold/public/.htaccess
+
+# Project
+htdocs/dold/data/smarty/templates_c/*.php
+htdocs/dold/data/cache/*.cache
+htdocs/dold/data/logs/*.log
+htdocs/dold/data/DoctrineORMModule/Proxy/*.php
+htdocs/dold/data/DoctrineORMModule/Proxy/*.php.*
+sql/*.bak
+sql/*.beforefix
+
+# Grunt, Sass, Themes
+.sass-cache/
+# htdocs/dold/public/themes/dold/node_modules
+# htdocs/dold/public/themes/dold/upload
+# htdocs/dold/public/themes/dold/*.html
+# htdocs/dold/public/themes/dold/*.png
+# htdocs/dold/public/themes/dold/*.jpg
+# htdocs/dold/public/themes/dold/*.log
+
+# Frontend
+htdocs/dold/public/external
+htdocs/dold/public/temp/*
+!htdocs/dold/public/temp/.keep
+htdocs/dold/public/uploads/*
+!htdocs/dold/public/uploads/.keep
+htdocs/dold/public/eventProcesses/*
+!htdocs/dold/public/eventProcesses/.keep

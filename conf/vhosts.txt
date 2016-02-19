@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+    DocumentRoot C:/projects/workspace/dold-pim/htdocs/dold/public
+    ServerName dold-pim.local
+    DirectoryIndex index.html index.php
+    SetEnv APPLICATION_ENV "development"
+    <Directory "C:/projects/workspace/dold-pim/htdocs/dold/public">
+                Options Indexes FollowSymLinks Includes ExecCGI
+                Order allow,deny
+                Allow from all
+                AllowOverride All
+    </Directory>
+</VirtualHost>
