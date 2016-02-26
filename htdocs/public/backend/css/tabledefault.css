@@ -1,0 +1,628 @@
+/* table default */
+.table-default {
+    width: 100%;
+}
+.table-default tr th {
+    text-align: left;
+    vertical-align: top;
+}
+.table-default tr th + th {
+    padding: 0 0 0 2px;
+}
+.table-default tr th .title {
+    background: #eeeeef;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px 0 10px;
+    position: relative;
+}
+.table-default tr th .title.sortable {
+    padding: 7px 30px 5px 10px;
+}
+.table-default tr th .title:hover {
+    color: #bf002b;
+}
+.table-default tr th .title .sort {
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    position: absolute;
+    right: 5px;
+    width: 20px;
+}
+.table-default tr th .title .sort.asc {
+    background: url(../../backend/images/icon_asc.png) no-repeat scroll left top transparent;
+    top: 0;
+}
+.table-default tr th .title .sort.asc.active {
+    background: url(../../backend/images/icon_asc_active.png) no-repeat scroll left top transparent;
+}
+.table-default tr th .title .sort.asc:hover {
+    background: url(../../backend/images/icon_asc_hover.png) no-repeat scroll left top transparent;
+}
+.table-default tr th .title .sort.desc {
+    background: url(../../backend/images/icon_desc.png) no-repeat scroll left top transparent;
+    top: 15px;
+}
+.table-default tr th .title .sort.desc.active {
+    background: url(../../backend/images/icon_desc_active.png) no-repeat scroll left top transparent;
+}
+.table-default tr th .title .sort.desc:hover {
+    background: url(../../backend/images/icon_desc_hover.png) no-repeat scroll left top transparent;
+}
+.table-default tr td {
+    border-bottom: 1px solid #eeeeef;
+    padding: 14px 5px 0 12px;
+    vertical-align: top;
+}
+.table-default tbody tr:hover {
+    background: #eeeeef;
+}
+.table-default tbody tr:hover td,
+.table-default tbody tr:hover td a {
+    color: #bf002b;
+}
+.table-default.table-empty tr td {
+    line-height: 54px;
+    text-align: left;
+    vertical-align: top;
+}
+.table-default.table-empty tr:hover {
+    background: none;
+}
+.table-default.table-empty tr:hover td {
+    color: #333;
+}
+.table-default.table-empty tr td .link-reset {
+    font-size: 11px;
+}
+.table-default .standard-lineheight {
+    display: block;
+    line-height: 18px;
+}
+.table-default-footer {
+    color: #999;
+    background: #eeeeef;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    line-height: 30px;
+    position: relative;
+    width: 100%;
+}
+
+/* table paging */
+.table-paging {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 0 10px 0;
+    text-align: right;
+}
+.table-paging.bottom {
+    padding: 10px 0;
+}
+.table-paging .page {
+    cursor: pointer;
+    padding: 0 5px;
+}
+.table-paging .page.active,
+.table-paging .page:hover {
+    color: #bf002b;
+}
+.table-paging .page.prev {
+
+}
+.table-paging .page.next {
+
+}
+
+/* table-filtered */
+.table-filtered {
+    width: auto;
+}
+.table-filtered-list {
+    left: 0;
+    position: relative;    
+    top: -1px;
+}
+.table-filtered .table-filtered-filters {
+    background: #eeeeef;
+    border-bottom: 2px solid #fff;
+    min-height: 30px;
+    position: relative;
+    z-index: 3;
+}
+.table-filtered .table-filtered-filters:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+.table-filtered .table-filtered-filters .filters,
+.table-filtered .table-filtered-actions .actions {
+    border-left: 3px solid #fff;
+    float: left;
+    height: 30px;
+    margin: 0 0 0 21px;
+    position: relative;
+}
+.table-filtered .table-filtered-filters .filters label,
+.table-filtered .table-filtered-actions .actions label {
+    color: #333;
+    float: left;
+    font-weight: bold;
+    left: auto;
+    line-height: 30px;
+    overflow: visible;
+    padding: 0 10px 0 5px;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    width: auto;
+}
+.table-filtered .table-filtered-filters .filters .column-select,
+.table-filtered .table-filtered-actions .actions .action-select {
+    float: left;
+    height: 30px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    width: 160px;
+}
+.table-filtered .table-filtered-filters .filters .ffbdropdown-main.default,
+.table-filtered .table-filtered-actions .actions .action-select .ffbdropdown-main.default{
+    margin: 0;
+    padding: 0;
+    top: 2px;
+}
+.table-filtered .table-filtered-filters .filters .ffbdropdown-main.default .wrap .ffbdropdown-value,
+.table-filtered .table-filtered-actions .actions .action-select .ffbdropdown-main.default .wrap .ffbdropdown-value {
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+.table-filtered .table-filtered-filters .filters .ffbdropdown-main.default .ffbdropdown-list,
+.table-filtered .table-filtered-actions .actions .action-select .ffbdropdown-main.default .ffbdropdown-list {
+    margin: 0 0 0 -1px;
+}
+.table-filtered .table-filtered-filters .filters .column-value-select {
+    float: left;
+    height: 30px;
+    width: 160px;
+}
+/* .table-filtered .table-filtered-filters-controls */
+.table-filtered .table-filtered-filters .selects {
+    float: left;
+    width: 92%;
+}
+.table-filtered .table-filtered-filters-controls {
+    background: url(../../backend/images/icon_plus_l.png) no-repeat scroll 9px center #595959;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    line-height: 25px;
+    margin: 0 5px 5px 0;
+    padding: 0 10px 0 25px;
+    position: relative;
+    z-index: 5;
+}
+.table-filtered .table-filtered-filters-controls .checkboxes {
+    background: #595959;
+    border: 1px solid #646a6a;
+    cursor: default;
+    display: none;
+    left: 0;
+    padding: 12px 18px;
+    position: absolute;
+    top: 25px;
+    z-index: 5;
+}
+.table-filtered .table-filtered-filters-controls .checkboxes .custom-checkbox {
+    display: block;
+    margin: 6px 0;
+}
+.table-filtered .table-filtered-filters-controls.open .checkboxes {
+    display: block;
+    line-height: normal;
+    max-height: 300px;
+    overflow: auto;
+}
+.table-filtered .table-filtered-filters-controls.columns-view {
+    float: right;
+    margin: 0;
+    max-width: 6%;
+}
+.table-filtered .table-filtered-filters-controls.columns-view .checkboxes {
+    left: auto;
+    right: 0;
+}
+.table-filtered .table-filtered-filters-controls .checkboxes .custom-checkbox.white label {
+    white-space: nowrap;
+}
+/* .table-filtered .links-and-buttons */
+.table-filtered .links-and-buttons {
+    float: right;
+    height: 30px;
+    padding: 0 5px 0 0;
+    position: relative;
+}
+.table-filtered .links-and-buttons .button {
+    float: none;
+    height: 23px;
+    margin: 0;
+    position: relative;
+    top: 2px;
+}
+/* .table-filtered .search */
+.table-filtered .table-filtered-filters .search {
+    float: right;
+    height: 30px;
+    padding: 0 5px 0 0;
+    position: relative;
+}
+.table-filtered .table-filtered-filters .search input {
+    float: none;
+    height: 23px;
+    margin: 0;
+    padding: 0 25px 0 10px;
+    top: 2px;
+    width: 130px;
+}
+.table-filtered .table-filtered-filters .search .search-icon {
+    cursor: pointer;
+    display: block;
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    width: 26px;
+}
+
+/* .table-filtered .table-filtered-dynamic */
+.table-filtered .table-filtered-dynamic {
+    clear: both;
+    overflow: auto;
+    position: relative;
+}
+.table-filtered .table-filtered-dynamic .ajax-wait {
+    background: url(../../backend/images/icon_ajax_wait.gif) no-repeat scroll center center transparent;
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+    min-height: 200px;
+    position: absolute;
+    width: 90%;
+}
+
+/* .table-filtered .table-filtered-headers */
+.table-filtered .table-filtered-headers {
+    background: #eeeeef;
+    border-bottom: 2px solid #fff;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.table-filtered .table-filtered-headers > table {
+    table-layout: fixed;
+}
+/*.table-filtered-list .table-filtered {
+    margin: -31px 0 0 0;
+}*/
+.table-filtered-list .table-filtered thead {
+    visibility: hidden;
+}
+
+/* table-filtered table */
+.table-filtered tr th {
+    background: #fff;
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #fff;
+    min-width: 22px;
+    width: auto;
+}
+.table-filtered tr th + th {
+    padding: 0;
+    width: auto;
+}
+.table-filtered tr th .title {
+    background-image: url(../../backend/images/icon_note_column.png);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: 2px center;
+    border-right: 1px solid #fff;
+    height: 30px;
+    line-height: normal;
+    padding: 0;    
+}
+.table-filtered tr th + th .title {
+    background-image: none;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    height: auto;
+    min-height: 18px;
+    padding: 7px 5px 5px 10px;
+}
+.table-filtered tr th:last-child {
+    border-right: 1px solid #eeeeef;
+}
+.table-filtered tr th:last-child .title {
+    border-right: 1px solid #eeeeef;
+}
+.table-filtered tr td {
+    border-bottom: 1px solid #eeeeef;
+    border-left: none;
+    border-right: 1px solid #eeeeef;
+    border-top: 1px solid #eeeeef;
+    font-size: 11px;
+    min-width: 22px;
+    padding: 10px 0 0 0;
+    text-align: center;
+}
+.table-filtered tr td + td {
+    min-width: 22px;
+    padding: 14px 5px 5px 12px;
+    text-align: left;    
+}
+
+/* .table-filtered .table-filtered-actions */
+.table-filtered .table-filtered-actions {
+    background: #eeeeef;
+    border-top: 4px solid #fff;
+    height: 30px;
+    position: relative;
+    z-index: 4;
+}
+.table-filtered .table-filtered-actions:after {
+    background: url('../../backend/images/icon_resizer.png') no-repeat scroll center center transparent;
+    bottom: 2px;
+    content: '';
+    height: 10px;
+    position: absolute;
+    right: 2px;
+    width: 10px;
+}
+.table-filtered .table-filtered-actions .select-all {
+    background: url(../../backend/images/icon_table_select_all.png) no-repeat scroll center center #ccc;
+    border-right: 3px solid #fff;
+    cursor: pointer;
+    height: 30px;
+    left: -24px;
+    position: absolute;
+    top: 0;
+    width: 21px;
+}
+.table-filtered .table-filtered-actions .resize-handler {
+    bottom: 0;
+    cursor: n-resize;
+    height: 17px;
+    position: absolute;
+    right: 0;
+    width: 17px;
+    z-index: 1;
+}
+.table-filtered .table-filtered-actions .rows-selected,
+.table-filtered .table-filtered-actions .total-rows-selected {
+    color: #333;
+    float: right;
+    font-weight: bold;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.table-filtered .table-filtered-actions .rows-selected span,
+.table-filtered .table-filtered-actions .total-rows-selected span {
+    padding: 0 0 0 5px;
+}
+.table-filtered .table-filtered-actions .rows-selected {
+    margin: 0 17px 0 0;
+}
+.table-filtered .table-filtered-actions .total-rows-selected {
+    margin: 0 37px 0 0;
+}
+
+/* .table-filtered inputs */
+.table-filtered tr td input[type="checkbox"],
+.table-filtered tr td input[type="radio"] {
+    left: auto;
+    margin: 0;
+    position: relative;
+    top: 5px;
+}
+
+/* table-filtered.no-filters */
+.table-filtered.no-filters .table-filtered-list .table-filtered {
+    margin: 0;
+}
+
+/* .table-filtered.expert-view */
+.table-filtered.expert-view {
+
+}
+.table-filtered.expert-view .table-filtered-filters {
+    background: none;
+    margin: 0 0 0 0;
+    padding: 5px 0 0 0;
+}
+.table-filtered.expert-view .table-filtered-filters select {
+    display: none;
+}
+.table-filtered.expert-view .table-filtered-filters .ffbdropdown-main {
+    float: left;
+    margin: 0 5px 5px 0;
+    width: auto;
+}
+.table-filtered.expert-view .table-filtered-actions:after {
+    display: none;
+}
+.table-filtered.expert-view .table-filtered-actions .resize-handler {
+    display: none;
+}
+.table-filtered.expert-view tr th {
+    background: #eeeeef;
+}
+.table-filtered.expert-view tr th .title {
+    border-right: none;
+}
+.table-filtered.expert-view tr th + th .title {
+    border-left: none;
+    border-right: none;
+}
+.table-filtered.expert-view tr th + th + th .title {
+    font-size: 11px;
+    min-width: 125px;
+}
+.table-filtered.expert-view tr td {
+    border-right: 1px solid #fff;
+    word-break: break-all;
+}
+.table-filtered.expert-view tr td + td + td {
+    min-width: 125px;
+}
+.table-filtered.expert-view tr:hover td {
+    border-right: 1px solid #eeeeef;
+}
+.table-filtered.expert-view tr .editor:hover {
+    background: url("../../backend/images/icon_edit.png") no-repeat scroll right center transparent;
+    cursor: pointer;
+}
+.table-filtered.expert-view tr .editor.editor-active:hover {
+    background: none;
+    cursor: default;
+}
+.table-filtered.expert-view tr .editor.editor-active.saving .editor-text {
+    background: url("../../backend/images/icon_ajax_wait.gif") no-repeat scroll right center #fff;
+}
+.table-filtered.expert-view tr .editor.editor-active.saving .editor-textarea {
+    background: url("../../backend/images/icon_ajax_wait.gif") no-repeat scroll right top #fff;
+}
+.table-filtered.expert-view tr .editor.editor-active.saving .ffbdropdown-main.default .wrap {
+    background: url("../../backend/images/icon_ajax_wait.gif") no-repeat scroll right center transparent;
+}
+.table-filtered.expert-view tr .editor .editor-text {
+    background: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #1d1c1b;
+    font-size: 12px;
+    font-weight: normal;
+    height: 21px;
+    line-height: 100%;
+    padding: 0 16px 0 5px;
+    width: 100%;
+}
+.table-filtered.expert-view tr .editor.editortype-2,
+.table-filtered.expert-view tr .editor.editortype-3 {
+    position: relative;
+}
+.table-filtered.expert-view tr .editor .editor-textarea {
+    background: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #1d1c1b;
+    font-size: 12px;
+    font-weight: normal;
+    left: 5px;
+    line-height: 18px;
+    min-height: 21px;
+    min-width: 100%;
+    padding: 0 16px 0 5px;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    z-index: 1;
+}
+
+/* .expert-views-controls */
+.expert-views-controls {
+    height: 23px;
+    left: 170px;
+    top: -35px;
+    position: absolute;
+    width: 600px;
+}
+.expert-views-controls .design-select.expert-views {
+    border: 1px solid #ccc;
+    float: left;
+    margin: 0px 10px 0px 0px;
+    max-width: 300px;
+}
+.expert-views-controls .design-select.expert-views .wrap {
+    border-right: 10px solid #fff;
+}
+.expert-views-controls .design-select.expert-views .wrap .value {
+
+}
+.expert-views-controls .design-select.expert-views .wrap .value input {
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 12px;
+    font-weight: normal;
+    height: 21px;
+    line-height: 100%;
+    padding: 0px;
+    width: 270px;
+}
+.expert-views-controls .design-select.expert-views .wrap .value input.invalid {
+    background: #f3cdcb;
+    color: #fb002b;
+}
+.expert-views-controls .design-select.expert-views .design-select-list {
+
+}
+.expert-views-controls .design-select.expert-views .design-select-list li {
+    font-size: 12px;
+    padding: 5px 10px;
+    position: relative;
+}
+.expert-views-controls .design-select.expert-views .design-select-list li .remove {
+    background: transparent url("../../backend/images/icon_delete_round.png") no-repeat scroll left top;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 17px;
+    right: 0;
+    position: relative;
+    top: 0;
+    width: 17px;
+}
+.expert-views-controls .design-select.expert-views .design-select-list li.active,
+.expert-views-controls .design-select.expert-views .design-select-list li:hover {
+    background: #eee;
+}
+.expert-views-controls button {
+    background: #888;
+    border: 1px solid #888;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    height: 23px;
+    line-height: 100%;
+    margin: 0 10px 0 0;
+    padding: 0 11px;
+    position: relative;
+}
+.expert-views-controls button:hover {
+    background: #aaa;
+}
+.expert-views-controls .expert-views-save {
+
+}
+.expert-views-controls .expert-views-create {
+
+}
+.expert-views-controls .expert-views-create + .icon-tooltip {
+    margin: 3px 0 0;
+}
+.expert-views-controls .expert-views-ajax {
+    float: left;
+}
+.expert-views-controls .expert-views-ajax .ajax-wait {
+    background: url(../../backend/images/icon_ajax_wait.gif) no-repeat scroll center center transparent;
+    display: block;
+    height: 23px;
+    width: 23px;
+}

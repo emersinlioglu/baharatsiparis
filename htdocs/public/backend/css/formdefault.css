@@ -1,0 +1,764 @@
+/* form-default */
+.form-default {
+    clear: both;
+    padding: 0 0 10px 0;
+    position: relative;
+}
+.form-default:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+.form-default .row {
+    clear: both;
+    margin: 0 0 10px 155px;
+    min-height: 25px;
+    position: relative;
+}
+.form-default .row label {
+    color: #555;
+    display: block;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    left: -155px;
+    line-height: 18px;
+    min-height: 21px;
+    overflow: hidden;
+    padding: 4px 10px 0 0;
+    position: absolute;
+    text-align: left;
+    width: 135px;
+    word-wrap: break-word;
+}
+.form-default hr {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    clear: both;
+    margin: 30px 0;
+    padding: 30px 0 0;
+}
+.form-default hr.thin {
+    margin: 10px 0;
+    padding: 0;
+}
+.form-default h3 {
+    border-bottom: 1px solid #e0e0e0;
+    clear: both;
+    color: #666;
+    font-size: 15px;
+    line-height: 15px;
+    margin: 0 0 20px 0;
+    padding: 40px 0 15px 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.form-default h3.first {
+    padding: 0 0 15px 0;
+}
+.form-default h4 {
+    clear: both;
+    color: #999;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 0 0 15px 0;
+    min-height: 21px;
+    padding: 40px 10px 0 0;
+    text-align: left;
+    word-wrap: break-word;
+}
+.form-default h4.first {
+    padding: 4px 10px 0 0;
+}
+.form-default iframe {
+    display: none;
+}
+.form-default .validator {
+    display: none;
+}
+.validator-tooltip {
+    background: #bf002b;
+    color: #fff;
+    font-size: 11px;
+    line-height: 14px;
+    padding: 4px;
+    position: absolute;
+    z-index: 100;
+}
+
+/* form-default inputs */
+.form-default input[type="text"],
+.form-default input[type="date"],
+.form-default input[type="datetime"],
+.form-default input[type="password"],
+.form-default textarea,
+.form-default select {
+    color: #999;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    height: 23px;
+    line-height: 23px;
+    margin: 0 0 0 -12px;
+    padding: 0 0 0 10px;
+}
+.form-default textarea {
+    line-height: 18px;
+    min-height: 80px;
+    padding: 3px 0 2px 10px;
+    resize: vertical;
+    width: 100%;
+}
+.form-default input[type="text"],
+.form-default input[type="date"],
+.form-default input[type="datetime"],
+.form-default input[type="password"] {
+    width: 100%;
+}
+.form-default input[type="text"]:focus,
+.form-default input[type="date"]:focus,
+.form-default input[type="datetime"]:focus,
+.form-default input[type="password"]:focus,
+.form-default textarea:focus {
+    font-weight: normal;
+}
+.form-default input[type="text"]:hover,
+.form-default input[type="date"]:hover,
+.form-default input[type="datetime"]:hover,
+.form-default input[type="password"]:hover,
+.form-default textarea:hover {
+
+}
+.form-default input[type="checkbox"],
+.form-default input[type="radio"] {
+    position: relative;
+    top: 4px;
+}
+
+/* form-default validation */
+.form-default input[type="text"].invalid,
+.form-default input[type="date"].invalid,
+.form-default input[type="datetime"].invalid,
+.form-default input[type="password"].invalid,
+.form-default textarea.invalid,
+.ffbdropdown-main.invalid {
+    background: #f3cdcb;
+    border: 1px solid #fb002b;
+    color: #fb002b;
+}
+.form-default input[type="radio"].invalid,
+.form-default input[type="checkbox"].invalid {
+    box-shadow: 0 0 5px 0 #fb002b;
+    /*outline: 1px solid #fb002b;  ie7 */
+}
+.form-default .trans.selected .mce-tinymce.mce-container.mce-panel,
+.form-default .trans.selected input:not(.ffbdropdown-value):not(.ffbdropdown-fake),
+.form-default .trans.selected textarea,
+.form-default .trans.selected .ffbdropdown-main {
+    border: 1px solid #95c152;
+}
+
+/* form-default columns */
+.form-default .columns {
+    clear: both;
+}
+.form-default .columns .column {
+}
+.form-default .columns .column.left {
+    clear: left;
+    float: left;
+    width: 46%;
+}
+.form-default .columns .column.middle {
+    clear: none;
+    float: left;
+    width: 46%;
+}
+.form-default .columns .column.right {
+    float: right;
+    width: 46%;
+}
+.form-default .columns .column.full {
+    clear: both;
+    width: 100%;
+}
+.form-default .columns .column.left.third {
+    width: 33%;
+}
+.form-default .columns .column.middle.third {
+    width: 34%;
+}
+.form-default .columns .column.right.third {
+    float: left;
+    width: 33%;
+}
+.form-default .columns .column.left.quarter {
+    width: 25%;
+}
+.form-default .columns .column.middle.quarter {
+    width: 25%;
+}
+.form-default .columns .column.right.quarter {
+    float: left;
+    width: 25%;
+}
+
+/* columns styles */
+.form-default .columns .column.gray {
+    background: #f5f5f5;
+}
+
+/* form-default editable */
+.form-default .row.editable {
+    border: 1px solid transparent;
+    cursor: pointer;
+/*    margin: 0 12px 0 157px;*/
+    position: relative;
+}
+.form-default .row.editable:hover {
+}
+.form-default .row .value {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    display: block;        
+    min-height: 25px;
+    padding: 5px 0 0 0;
+    width: 100%;
+}
+.form-default .editable.value:hover {
+/*    background: url("../images/icon_edit_pencil.png") no-repeat scroll right 5px transparent;*/
+    border: 1px dashed #ccc;
+}
+.form-default .editable.edit {
+    display: block;
+}
+.form-default .editable.edit .editable-button {
+/*    bottom: -22px;
+    cursor: pointer;*/
+    display: none;
+/*    height: 20px;
+    position: absolute;
+    right: 0;
+    text-indent: -9999px;
+    width: 20px;
+    z-index: 1;*/
+}
+/*.form-default .editable.edit .editable-button.ok {
+    background: url("../images/icon_ok_button.png") no-repeat scroll center center #676c6e;
+    right: 25px;
+}
+.form-default .editable.edit .editable-button.ok:hover {
+    background: url("../images/icon_ok_button.png") no-repeat scroll center center #5a5e60;
+}
+.form-default .editable.edit .editable-button.cancel {
+    background: url("../images/icon_button_close.png") no-repeat scroll center center #676c6e;
+}
+.form-default .editable.edit .editable-button.cancel:hover {
+    background: url("../images/icon_button_close.png") no-repeat scroll center center #5a5e60;
+}*/
+
+/* form-default controls */
+
+/* form-default input datepicker */
+.form-default input.datepicker {
+    background: url("../../backend/images/icon_datepicker_small_28x28.png") no-repeat scroll right center #fff;
+    background-size: 25px 25px;
+    cursor: pointer;
+    font-weight: normal;
+}
+.form-default input.datepicker.invalid {
+    background: url("../../backend/images/icon_datepicker_small_28x28.png") no-repeat scroll right center #f3cdcb;
+}
+
+/* form-default input search */
+.form-default input.search {
+    background: url("../../backend/images/icon_search.png") no-repeat scroll right center #fff;
+    background-size: 25px 25px;
+    font-weight: normal;
+    padding: 0 30px 0 10px;
+}
+
+.form-default input.search.invalid {
+    background: url("../../backend/images/icon_search.png") no-repeat scroll right center #f3cdcb;
+}
+
+/* form-defaul ffbdropdown-main */
+.form-default .ffbdropdown-main.default {
+    margin: 0 0 0 -12px;
+}
+.form-default .ffbdropdown-main.default .wrap .ffbdropdown-value {
+    padding: 0 0 0 12px;
+}
+.ffbdropdown-main.default .ffbdropdown-list li {
+    font-size: 12px;
+}
+
+/* form-default input selectfile */
+.form-default .fileupload-wrapper {
+    margin: 0 0 0 -12px;
+}
+.form-default input.fileupload-selectfile {
+    background: none;
+    color: #999;
+    cursor: pointer;
+    font-weight: normal;
+    margin: 0;
+}
+.form-default .fileupload-list {
+    padding: 10px 0 0 0;
+}
+.form-default .fileupload-list li {
+    line-height: 25px;
+    white-space: nowrap;
+}
+.form-default .fileupload-list .fileupload-delete {
+    background: url("../../backend/images/icon_delete_round.png") no-repeat scroll left top transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 17px;
+    margin: 0 10px 0 0;
+    position: relative;
+    top: 5px;
+    width: 17px;
+}
+.form-default .fileupload-list .fileupload-file {
+    background: none;
+    color: #bf002b;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.form-default .fileupload-list .fileupload-image-preview {
+    max-height: 105px;
+    max-width: 105px;
+}
+.form-default .fileupload-list .fileupload-file:hover {
+    text-decoration: underline;
+}
+.form-default .fileupload-gallery {
+    height: 252px;
+}
+.form-default .fileupload-gallery .canvas {
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    height: 250px;
+    float: left;
+    line-height: 250px;
+    margin: 0 20px 0 0;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 370px;
+}
+.form-default .fileupload-gallery .canvas img {
+    display: none;
+    max-height: 250px;
+    max-width: 370px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+}
+.form-default .fileupload-gallery .canvas img.active {
+    display: inline-block;
+}
+.form-default .fileupload-gallery .canvas .empty {
+    background: url("../../backend/images/img_photo.png") no-repeat scroll center center transparent;
+    height: 250px;
+    width: 370px;
+}
+.form-default .fileupload-gallery .canvas .empty span {
+    color: #999;
+    display: block;
+    line-height: 18px;
+    margin: 0 auto;
+    max-width: 250px;
+    position: relative;
+    top: 140px;
+}
+.form-default .fileupload-gallery .canvas .arrow {
+    height: 250px;
+    position: absolute;
+    top: 0;
+    width: 30px;
+}
+.form-default .fileupload-gallery .canvas .arrow.next {
+    background: url("../../backend/images/icon_gal_right.png") no-repeat scroll center center rgba(0, 0, 0, 0.3);
+    right: 0;
+}
+.form-default .fileupload-gallery .canvas .arrow.prev {
+    background: url("../../backend/images/icon_gal_left.png") no-repeat scroll center center rgba(0, 0, 0, 0.3);
+    left: 0;
+}
+.form-default .fileupload-gallery .canvas .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.form-default .fileupload-gallery .controls {
+    float: left;
+}
+.form-default .fileupload-gallery .controls .total {
+    color: #999;
+    display: block;
+    margin: 0 0 15px 0;
+}
+.form-default .fileupload-gallery .controls .button {
+
+}
+.form-default .fileupload-gallery .controls .info {
+    color: #999;
+    margin: 15px 0;
+    max-width: 150px;
+}
+.form-default .fileupload-wrapper.no-gallery .fileupload-gallery {
+    height: auto;
+}
+.form-default .fileupload-wrapper.no-gallery .fileupload-gallery .canvas {
+    display: none;
+}
+.form-default .fileupload-wrapper.no-gallery .controls {
+    float: none;
+}
+.form-default .fileupload-wrapper.no-gallery .controls .total {
+    display: none;
+}
+.form-default .fileupload-wrapper.no-gallery .controls .button {
+    background: url("../../backend/images/icon_fileselect.png") no-repeat scroll right center #fff;
+    background-size: auto 25px;
+    border: 1px solid #d2d2d2;
+    box-sizing: border-box;
+    color: #999;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: normal;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 0 0 10px;
+    width: 100%;
+}
+
+/* teaserselect */
+.form-default .row.teaserselect {
+    margin: 0 0 10px 412px;
+}
+.form-default .row.teaserselect label {
+    float: none;
+    left: auto;
+    margin: 0 0 10px -412px;
+    position: static;
+    width: auto;
+}
+.form-default .row.teaserselect .ffbdropdown-main.default {
+    margin: 0;
+    top: 30px;
+}
+.form-default .fileupload-wrapper.teaserselect {
+
+}
+.form-default .fileupload-wrapper.teaserselect select {
+
+}
+.form-default .row.teaserselect .fileupload-gallery {
+    margin: -25px 0 0 -400px;
+}
+.form-default .row.teaserselect .fileupload-gallery .controls .total {
+    margin: 0 0 0 8px;
+}
+
+/* .colorPicker-picker */
+.form-default .colorPicker-picker {
+    margin: 0 0 0 -12px;
+    top: 5px;
+}
+
+/* form-default fileupload direct */
+.form-default .fileupload.direct {
+
+}
+.form-default .fileupload.direct .fileupload-button {
+    background: url("../../backend/images/icon_fileselect.png") no-repeat scroll right center #fff;
+    background-size: auto 25px;
+    overflow: hidden;
+    position: relative;
+    /* this is to prevent messed up display if field loses foces after using <TAB> */
+    /* does not work */
+    /*height: 30px;*/
+    /*line-height: 46px;*/
+}
+.form-default .fileupload.direct .fileupload-button input[type="file"] {
+    cursor: pointer;
+    font-size: 200px;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* ratingstarts */
+.form-default .rating-stars {
+    line-height: 18px;
+    margin: 0 0 0 -12px;
+    padding: 4px 0 0 0;
+}
+.form-default .rating-stars span {
+    background: url('../../backend/images/icon_star_grey_big.png') no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    width: 25px;
+}
+.form-default .rating-stars .active {
+    background: url('../../backend/images/icon_star_red_big.png') no-repeat;
+}
+.form-default .rating-stars .reset {
+    background: url("../../../images/backend/icon_delete_round.png") no-repeat 0 0;
+    float: right;
+    height: 17px;
+    width: 17px;
+    cursor: pointer;
+}
+
+/* form-default mce-tinymce */
+.form-default .mce-tinymce {
+    margin: 0 0 0 -12px;
+}
+
+/* form-default rows */
+
+/* row small */
+.form-default .row.small {
+    margin: 0 0 0 137px;
+    min-height: 0;
+}
+.form-default .row.small label {
+    min-height: 18px;
+    padding: 0;
+}
+.form-default .row.small input[type="text"],
+.form-default .row.small input[type="date"],
+.form-default .row.small input[type="datetime"],
+.form-default .row.small input[type="password"],
+.form-default .row.small textarea,
+.form-default .row.small select {
+    height: 18px;
+    line-height: 18px;
+}
+
+/* row suffixed */
+.form-default .row.suffixed input[type="text"],
+.form-default .row.suffixed input[type="date"],
+.form-default .row.suffixed input[type="datetime"],
+.form-default .row.suffixed input[type="password"],
+.form-default .row.suffixed textarea,
+.form-default .row.suffixed select {
+    width: 130px;
+}
+.form-default .row.suffixed .suffix {
+    font-weight: bold;
+    line-height: 25px;
+    padding: 0 6px;
+}
+
+/* row submit */
+.form-default .row.submit {
+    position: static;
+    margin: 0 0 10px 0;
+    min-height: 0;
+}
+.form-default .row.submit input {
+    float: right;
+}
+
+/* row button */
+.form-default .row.input-button input {
+    margin: 0 0 0 -12px;
+}
+
+/* row checkbox */
+/*.form-default .row.checkbox {
+    margin: 0 0 10px 143px;
+}*/
+.form-default .row.checkbox label {
+    color: #999;
+    float: none;
+    font-weight: normal;
+    left: auto;
+    overflow: visible;
+    padding: 4px 0 0 10px;
+    position: relative;
+    text-align: left;
+    width: auto;
+}
+.form-default .row.checkbox input[type="checkbox"] {
+    float: left;
+    margin: 0 0 0 -12px;
+    position: absolute;
+    top: 8px;
+}
+.form-default .offset-left-radio .row.checkbox {
+    margin: 0 0 10px 0;
+}
+.form-default .offset-left-radio .row.checkbox input[type="checkbox"] {
+    margin: 0;
+    top: 6px;
+}
+.form-default .offset-left-radio .row.checkbox label {
+    padding: 4px 0 0 25px;
+}
+
+/* row checkbox multi*/
+.form-default .row.checkbox.multi label {
+    color: #555;
+    float: left;
+    font-weight: bold;
+    left: -155px;
+    overflow: hidden;
+    padding: 4px 0 0 0;
+    position: absolute;
+    text-align: left;
+    width: 110px;
+}
+.form-default .row.checkbox.multi label + label {
+    color: #999;
+    float: none;
+    font-weight: normal;
+    left: auto;
+    overflow: visible;
+    padding: 4px 0 0 12px;
+    position: relative;
+    text-align: left;
+    width: auto;
+}
+.form-default .row.checkbox.multi label input[type="checkbox"] {
+    float: none;
+    left: 0;
+    margin: 0 0 0 -12px;
+    top: 6px;
+}
+
+/* row no height */
+.form-default .row.no-height {
+    height: 0;
+    min-height: 0;
+}
+
+/* row radio */
+.form-default .row.radio label + label {
+    color: #999;
+    float: none;
+    font-weight: normal;
+    left: auto;
+    margin: 0 0 0 -12px;
+    overflow: visible;
+    padding: 4px 0 0 0;
+    position: relative;
+    text-align: left;
+    width: auto;
+}
+.form-default .row.radio label + label input[type="radio"] {
+    margin: 0 10px 0 0;
+    top: -2px;
+}
+
+/* row rows-radio */
+.form-default .rows-radio .row.radio label {
+    color: #999;
+    float: none;
+    font-weight: normal;
+    position: relative;
+    width: 100%;
+}
+.form-default .rows-radio .row.radio label input {
+    margin: 0 10px 0 0;
+    top: -2px;
+}
+.form-default .rows-radio .row.radio label + label {
+    left: -155px;
+    padding: 4px 0 0 0;
+}
+.form-default .rows-radio .row.radio label + label input {
+
+}
+.form-default .rows-radio .row.radio.no-label label + label {
+    margin: 0;
+}
+
+/* row static-text */
+.form-default .row.static-text {
+
+}
+.form-default .row.static-text label {
+
+}
+.form-default .row.static-text span,
+.form-default .row.static-text p {
+    color: #999;
+    display: block;
+    padding: 6px 0 0 0;
+    margin: 0 0 0 -12px;
+    min-height: 19px;
+}
+.form-default .row.static-text.no-label {
+    margin: 0 0 10px 0;
+}
+.form-default .row.static-text.no-label span,
+.form-default .row.static-text.no-label p {
+    margin: 0;
+    padding: 4px 0 0 0;
+}
+
+/* form-default speicfic columns */
+.form-default .column.buttons .row.submit,
+.form-default .column.buttons .row.input-button {
+    clear: none;
+    margin: 0 0 10px 10px;
+}
+.form-default .column.buttons .row.submit + .row.submit {
+    clear: none;
+}
+
+/* links */
+.form-default .row label + a {
+    display: block;
+    margin: 0 0 0 -12px;
+    min-height: 19px;
+    padding: 4px 0 0;
+}
+
+/* custom-checkbox */
+.custom-checkbox {
+    position: relative;
+}
+.custom-checkbox input {
+    display: none;
+}
+.custom-checkbox input + label:before {
+    background-attachment: scroll;
+    background-color: transparent;
+    background-position: left top;
+    background-repeat: no-repeat;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 1px;
+}
+.custom-checkbox input:checked + label:before {
+    background-position: right top;
+}
+.custom-checkbox label {
+    cursor: pointer;
+}
+.custom-checkbox.white label {
+    display: block;
+    color: #fff;
+    padding: 0 0 0 21px;
+}
+.custom-checkbox.white label:before {
+    background-image: url("../../backend/images/spr_checkbox_white.png");
+    height: 12px;
+    width: 12px;
+}

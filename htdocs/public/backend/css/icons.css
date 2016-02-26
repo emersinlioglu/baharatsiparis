@@ -1,0 +1,51 @@
+/* icons */
+.icon-wrapper {
+    display: inline-block;
+    line-height: 19px;
+    height: 19px;
+    font-size: 19px;
+}
+.icon-edit,
+.icon-table-view,
+.icon-table-delete,
+.icon-table-export {
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -1000px;
+}
+.icon-edit {
+    background-image: url(../../backend/images/icon_edit.png);
+    height: 19px;
+    width: 18px;
+}
+a.icon-edit:not(:last-child) {
+    margin-right: 20px;
+}
+.icon-table-view {
+    background-image: url(../../backend/images/icon_table_view.png);
+    height: 16px;
+    width: 15px;
+}
+a.icon-table-view:not(:last-child) {
+    margin: 0 20px 0 0;
+}
+.link-delete,
+.icon-table-delete {
+    background-image: url(../../backend/images/icon_table_delete.png);
+    height: 16px;
+    width: 15px;
+}
+a.icon-table-delete:not(:last-child) {
+    margin-right: 20px;
+}
+.icon-table-export {
+    background-image: url(../../backend/images/icon_table_export.png);
+    height: 16px;
+    width: 23px;
+}
+a.icon-table-export:not(:last-child) {
+    margin-right: 20px;
+}

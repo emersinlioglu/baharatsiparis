@@ -1,0 +1,255 @@
+.ffb-calendar.popup {
+    background-color: #9D0010;
+    border: 1px solid #000;
+    position: absolute;
+    width: 195px;
+    z-index: 99999;
+}
+.ffb-calendar.popup .ffb-calendar-month-left {
+    background: url("../../images/calendar/spr_calendar.png") no-repeat scroll -19px -22px #E8E8E8;
+    cursor: pointer;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    width: 19px;
+}
+.ffb-calendar.popup .ffb-calendar-year-left {
+    background: url("../../images/calendar/spr_calendar.png") no-repeat scroll 0 -22px #E8E8E8;
+    cursor: pointer;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    width: 19px;
+}
+.ffb-calendar.popup .ffb-calendar-date {
+    background: none repeat scroll 0 0 #E8E8E8;
+    color: #666;
+    float: left;
+    font-weight: bold;
+    height: 19px;
+    line-height: 19px;
+    text-align: center;
+    cursor: default;
+    width: 153px;
+}
+.ffb-calendar.popup .ffb-calendar-month-right {
+    background: url("../../images/calendar/spr_calendar.png") no-repeat scroll -38px -22px #E8E8E8;
+    cursor: pointer;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    width: 19px;
+}
+.ffb-calendar.popup .ffb-calendar-year-right {
+    background: url("../../images/calendar/spr_calendar.png") no-repeat scroll -57px -22px #E8E8E8;
+    cursor: pointer;
+    float: left;
+    height: 19px;
+    line-height: 19px;
+    width: 19px;
+}
+.ffb-calendar.popup .ffb-calendar-body {
+    width: 100%;
+}
+.ffb-calendar.popup .ffb-calendar-body tr td:hover {
+    background: none repeat scroll 0 0 #08B0DD;
+    color: #fff;
+}
+.ffb-calendar.popup .ffb-calendar-body tr td.ffb-calendar-week-no:hover {
+    color: #666;
+}
+.ffb-calendar.popup .ffb-calendar-body tr td.ffb-calendar-disabled:hover {
+    background: none repeat scroll 0 0 #fff;
+    color: #ccc;
+}
+.ffb-calendar.popup .ffb-calendar-body tr td.ffb-calendar-prev-month:hover,
+.ffb-calendar.popup .ffb-calendar-body tr td.ffb-calendar-next-month:hover {
+    background: none repeat scroll 0 0 #fff;
+}
+.ffb-calendar.popup .ffb-calendar-title {
+    background: url("../../images/calendar/spr_calendar.png") no-repeat scroll 0 0 transparent;
+    color: #fff;
+    display: none;
+    font-size: 14px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 0 0 5px;
+    width: 190px;
+}
+.ffb-calendar.popup .ffb-calendar-close {
+    background: url("../../images/calendar/spr_calendar.png") no-repeat scroll -76px -22px transparent;
+    cursor: pointer;
+    float: right;
+    height: 11px;
+    margin: 5px;
+    width: 11px;
+}
+.ffb-calendar.popup .ffb-calendar-head {
+    background-color: #9D0010;
+    border-left: 1px solid #565656;
+    border-right: 1px solid #565656;
+    height: 19px;
+    width: 193px;
+}
+.ffb-calendar.popup .ffb-calendar-date {
+    width: 117px;
+}
+.ffb-calendar.popup .ffb-calendar-body {
+    border-left: 1px solid #565656;
+    border-right: 1px solid #565656;
+}
+.ffb-calendar.popup .ffb-calendar-value {
+    background: none repeat scroll 0 0 #D5E2EF;
+}
+.ffb-calendar.popup .ffb-calendar-footer {
+    background: none repeat scroll 0 0 #565656;
+    display: none;
+    height: 19px;
+    width: 195px;
+}
+
+/* ffb-calendar */
+.ffb-calendar.popup.red-white {
+    border: 1px solid #ccc;
+    position: absolute;
+    width: 220px;
+    left: 0px;
+    z-index: 9999;
+    background: #fff;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-month-left {
+    background: url("../../images/calendar/datepicker_arrow_left.png") no-repeat scroll center center transparent;
+    cursor: pointer;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    width: 20px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-year-left {
+    background: url("../../images/calendar/datepicker_arrow_left.png") no-repeat scroll center center transparent;
+    cursor: pointer;
+    float: left;
+    height: 30px;
+    margin: 0;
+    line-height: 30px;
+    width: 20px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-date {
+    background: none repeat scroll 0 0 #BF002B;
+    color: #fff;
+    float: left;
+    font-weight: bold ;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    text-align: center;
+    width: 130px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-month-right {
+    background: url("../../images/calendar/datepicker_arrow_right.png") no-repeat scroll center center transparent;
+    color: #ccc;
+    cursor: pointer;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    width: 20px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-year-right {
+    background: url("../../images/calendar/datepicker_arrow_right.png") no-repeat scroll center center transparent;
+    cursor: pointer;
+    float: left;
+    height: 30px;
+    margin: 0;
+    line-height: 30px;
+    width: 20px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-head {
+    background-color: #BF002B;
+    border: 5px solid #fff;
+    height: 30px;
+    width: 210px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body {
+    border-left: medium none;
+    border-right: medium none;
+    clear: both;
+    margin: 0 0 10px 5px;
+    width: 95%;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr th {
+    background: none repeat scroll 0 0 #fff;
+    border-bottom: 1px solid #ccc;
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 0 0 0;
+    text-align: center;
+    width: 19px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr th + th {
+    border-left: medium none;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td {
+    background: none repeat scroll 0 0 #fff;
+    border: medium none;
+    color: #666;
+    cursor: default;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 22px;
+    padding: 0;
+    text-align: center;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr + tr td {
+    padding: 0px 0 0 0;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td:hover{
+    background: none repeat scroll 0 0 #BF002B;
+    color: #fff;
+    cursor: pointer;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td.ffb-calendar-today {
+    background: none repeat scroll 0 0 #BF002B;
+    color: #fff;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body td.ffb-calendar-value {
+    background: #d2d2d2;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td.ffb-calendar-week-no {
+    border: medium none;
+    color: #999;
+    cursor: default;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td.ffb-calendar-week-no:hover {
+    background: none;
+    color: #999;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td.ffb-calendar-disabled {
+    color: #ccc;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td.ffb-calendar-disabled a {
+    color: #ccc;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td.ffb-calendar-prev-month,
+.ffb-calendar.popup.red-white .ffb-calendar-body tr td.ffb-calendar-next-month {
+    cursor: default;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-time {
+    height: 24px;
+    margin: 0 0 5px 0;
+    text-align: center;
+    width: 220px;
+}
+.ffb-calendar.popup.red-white .ffb-calendar-time input[type="text"] {
+    float: none;
+    height: 22px;
+    line-height: 22px;
+    margin: 0;
+    padding: 0 5px;
+    text-align: center;
+    width: 20px;
+}

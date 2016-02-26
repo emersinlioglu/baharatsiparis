@@ -1,0 +1,108 @@
+/* main-header */
+header {
+    min-width: 768px;
+}
+header .top {
+    background: #cc1f18;
+    color: #fff;
+    height: 43px;
+    padding: 0 50px;
+}
+header .top .wrapper {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+header .top h1 {
+    float: left;
+    line-height: 43px;
+    margin: 0;
+}
+header .top .main-header-menu {
+    float: right;
+    margin: 14px 0 0 0;
+}
+header .top .main-header-menu .design-select {
+    float: left;
+    font-size: 12px;
+    min-width: 150px;
+}
+header .top .main-header-menu .design-select.default .wrap {
+    background: url("../../backend/images/icon_dropdown_white.png") no-repeat scroll right center transparent;
+    padding: 0 20px 0 0;
+}
+header .top .main-header-menu .design-select.default .wrap .value {
+    color: #fff;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+header .top .main-header-menu .design-select.default .design-select-list li a {
+    font-size: 12px;
+}
+
+/* header navi */
+header .navi {
+    border-bottom: 1px solid #d9d9d9;
+    height: 71px;
+    margin: 0 50px;
+}
+header .navi .wrapper {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 43px 0 0 0;
+}
+header .navi .wrapper .logos {
+    margin-top: -34px;
+}
+header .navi .wrapper .logos .outer {
+    display: table-cell;
+    height: 60px;
+    vertical-align: middle;
+    width: 125px;
+}
+header .navi .wrapper .logos .inner {
+    margin: 0 auto;    
+}
+header .navi .wrapper .logos img {
+    max-height: 50px;
+    vertical-align: middle;
+    max-width: 125px;
+}
+header .navi .main-menu {
+    float: right;
+    max-width: 80%;
+}
+header .navi .main-menu {
+    position: relative;
+}
+header .navi .main-menu li {
+    float: left;
+    padding: 0 20px;
+}
+header .navi .main-menu li:first-child {
+    padding: 0 20px 0 0;
+}
+header .navi .main-menu li:last-child {
+    padding: 0 0 0 20px;
+}
+header .navi .main-menu li a {
+    border-top: 1px solid transparent;
+    color: #666;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+header .navi .main-menu li:hover a,
+header .navi .main-menu li.active a {
+    border-top: 1px solid #cc1f18;
+    color: #cc1f18;
+}
+header .navi.tablet .main-menu {
+    top: -19px;
+}
+header .navi.tablet .main-menu li {
+    margin: 0 0 5px 0;
+}

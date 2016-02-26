@@ -1,0 +1,230 @@
+/* form upload */
+.form-upload {
+    overflow: visible;
+}
+.form-upload .columns h3 {
+    margin-bottom: 27px;
+}
+.form-upload .columns .column.left {
+    width: 455px;
+}
+.form-upload .columns .column.right {
+    width: 455px;
+}
+.form-upload .columns .column.full {
+    width: 100%;
+}
+.form-upload .row label {
+    display: none;
+}
+.form-upload .row {
+    margin: 0 0 10px 0;
+}
+.form-upload .button.file {
+    margin: -35px 0 0 325px;
+    position: absolute;
+    white-space: nowrap;
+}
+.form-upload .button.file input {
+    cursor: pointer;
+    font-size: 200px;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.form-upload .drop-area {
+    background: url(../../backend/images/hl_dragndrop.png) no-repeat scroll center center transparent;
+    border: 7px solid #eeeeef;
+    height: 110px;
+    left: 475px;
+    position: absolute;
+    top: -135px;
+    width: 421px;
+}
+.form-upload .drop-area.highlighted {
+    background-color: #eeeeef;
+    border-color: #999;
+}
+.form-upload input[type="text"] {
+    margin: 0;
+    width: 285px;
+}
+.form-upload input[type="radio"],
+.form-upload .link-delete {
+    display: block;
+    margin: 0 auto;
+    top: 0;
+}
+.form-upload .files-list {
+    min-height: 76px;
+}
+.form-upload .files-list .table-fileslist {
+    table-layout: fixed;
+}
+.form-upload .files-list.images th {
+    width: 190px;
+}
+.form-upload .files-list.images th + th {
+    padding: 0 0 0 2px;
+    width: 335px;
+}
+.form-upload .files-list.images th + th + th {
+    width: 90px;
+}
+.form-upload .files-list.images th + th + th + th {
+    width: 135px;
+}
+.form-upload .files-list.images th + th + th + th + th {
+    width: 75px;
+}
+.form-upload .files-list.images th + th + th + th + th + th {
+    width: 70px;
+}
+.form-upload .files-list .image td {
+    padding: 14px 5px 5px 12px;
+}
+.form-upload .files-list .image td img {
+    max-height: 133px;
+    max-width: 173px;
+    vertical-align: middle;
+}
+.form-upload .files-list .image td .img-wrapper {
+    height: 90px;
+    overflow: hidden;
+}
+.form-upload .files-list tr.image:hover,
+.form-upload .files-list tr.document:hover {
+    background: none;
+}
+.form-upload .files-list.documents th {
+    width: 290px;
+}
+.form-upload .files-list.documents th + th {
+    width: 440px;
+}
+.form-upload .files-list.documents th + th + th {
+    width: 100px;
+}
+.form-upload .files-list.documents th + th + th + th {
+    width: 70px;
+}
+.form-upload .files-list .document td {
+    line-height: 28px;
+    padding: 14px 5px 5px 12px;
+}
+.form-upload .files-list .document td a {
+    text-decoration: underline;
+    white-space: nowrap;
+}
+.form-upload .files-list .document td .inplace {
+    border: 1px dashed #fff;
+    cursor: pointer;
+    display: block;
+    line-height: 18px;
+    margin: 0 0 5px 0;
+    min-height: 28px;
+    padding: 0 25px 5px 5px;
+}
+.form-upload .files-list .document:hover td .inplace {
+    border: 1px dashed #ccc;
+}
+.form-upload .files-list .document td .inplace:hover {
+    background: url(../../backend/images/icon_edit.png) no-repeat scroll right center transparent;
+    border: 1px dashed #ccc;
+}
+.form-upload .files-list .document td .editable.edit {
+    display: block;
+    margin: 0;
+    position: relative;
+}
+.form-upload .files-list .document td .link-delete {
+    position: relative;
+    top: 5px;
+}
+.form-upload textarea {
+    display: none;
+}
+.form-upload .columns .column.full .files-list textarea {
+    display: block;
+    min-height: 40px;
+    min-width: 420px;
+    width: 420px;
+}
+.form-upload .upload-info {
+    color: #999;
+    display: block;
+    margin: 0 0 17px;
+    min-height: 55px;
+}
+.form-upload .please-select {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+.form-upload .max-file-size {
+    color: red;
+}
+
+/* form upload in tiny */
+.mce-container .form-upload {
+    padding: 20px;
+}
+.mce-container .form-upload .files-list {
+    height: 190px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.mce-container .form-upload .button.file {
+    font-size: 12px;
+    height: 23px;
+    line-height: 23px;
+}
+.mce-container .form-upload .link-delete {
+    background: url("../../../images/tms/icon_table_delete.png") no-repeat scroll left top transparent;
+    cursor: pointer;
+    display: block;
+    height: 17px;
+    width: 17px;
+}
+.mce-container .form-upload .files-list.images th {
+    width: 30px;
+}
+.mce-container .form-upload .files-list.images th + th {
+    width: 173px;
+}
+.mce-container .form-upload .files-list.images th + th + th {
+    width: 375px;
+}
+.mce-container .form-upload .files-list.images th + th + th + th {
+    width: 130px;
+}
+.mce-container .form-upload .files-list.images th + th + th + th + th {
+    width: 70px;
+}
+.mce-container .form-upload .files-list.images th + th + th + th + th + th {
+    width: 70px;
+}
+.mce-container .form-upload .files-list.documents th {
+    width: 30px;
+}
+.mce-container .form-upload .files-list.documents th + th {
+    width: 748px;
+}
+.mce-container .form-upload .files-list.documents th + th + th {
+    width: 100px;
+}
+.mce-container .form-upload .files-list.documents th + th + th + th {
+    width: 70px;
+}
+
+/* form-hotel */
+.form-hotel.form-default .suggested-size {
+    margin-top: 40px;
+}
+
+/* form-assignment */
+.category-list {
+    margin: 15px 0;
+}
