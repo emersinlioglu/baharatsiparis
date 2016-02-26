@@ -62,6 +62,9 @@ class AvAttributeValueFieldset extends AbstractBackendFieldset {
                 'label_options' => array(
                     'disable_html_escape' => true
                 )
+            ),
+            'attributes' => array(
+                'isValueMin' => true
             )
         ));
 
@@ -73,6 +76,9 @@ class AvAttributeValueFieldset extends AbstractBackendFieldset {
                 'label_options' => array(
                     'disable_html_escape' => true
                 ),
+            ),
+            'attributes' => array(
+                'isValueMax' => true
             )
         ));
         $this->add(array(

@@ -91,6 +91,7 @@ class TemplateController extends AbstractBackendController {
 
         // get model(s)
         $attributeGroupModel = new Model\AttributeGroupModel($this->getServiceLocator(), $this->logger);
+        $langModel           = new Model\LangModel($this->getServiceLocator(), $this->logger);
         $attributeGroupsList = array();
         $linkHelper          = new Helper\HtmlLinkHelper();
         $checkboxHelper      = new \Zend\Form\View\Helper\FormCheckbox();
@@ -104,7 +105,8 @@ class TemplateController extends AbstractBackendController {
         /*  @var $attributeGroup Entity\AttributeGroupEntity */
         foreach ($attributeGroupModel->findAll() as $attributeGroup) {
 
-            $name = $attributeGroup->getCurrentTranslation()->getName();
+            //$name = $attributeGroup->getCurrentTranslation()->getName();
+            $data = array();
 
             $isAssigned = false;
             /* @var $attributeGroupAttribute Entity\AttributeGroupAttributeEntity */
@@ -118,21 +120,29 @@ class TemplateController extends AbstractBackendController {
             // set checkbox value for isAssigned and add attribute id for better selection in js
             $checkbox->setValue($isAssigned);
             $checkbox->setAttribute('data-href', $this->url()->fromRoute('home/default', array(
-                        'controller' => 'template',
-                        'action' => 'attributeGroupAssignment',
-                        'param' => 'template',
-                        'value' => $template->getId(),
-                        'param2' => 'attributegroup',
-                        'value2' => $attributeGroup->getId()
+                'controller' => 'template',
+                'action' => 'attributeGroupAssignment',
+                'param' => 'template',
+                'value' => $template->getId(),
+                'param2' => 'attributegroup',
+                'value2' => $attributeGroup->getId()
             )));
 
             // render checkbox
-            $liString = $checkboxHelper->render($checkbox);
+            $data['checkbox'] = $checkboxHelper->render($checkbox);
+
+            $masterTrans = $attributeGroup->getCurrentTranslation($this->getMasterLang())->getName();
+            $translations = array();
+            foreach($langModel->getActiveLanguagesAsArray() as $langId => $langCode) {
+                $translations[$langCode] = $attributeGroup->getCurrentTranslation($langId)->getName();
+            }
 
             // render link
-            $liString .= $linkHelper->getHtml(
-                $name,
-                $this->url()->fromRoute('home/default', array(
+            $data['link'] = array(
+                'masterTrans' => $masterTrans,
+                'translations' => $translations,
+                //'class' => 'pane-navi-link attribute-group',
+                'url' => $this->url()->fromRoute('home/default', array(
                     'controller' => 'template',
                     'action'     => 'attributes',
                     'param'      => 'template',
@@ -140,15 +150,27 @@ class TemplateController extends AbstractBackendController {
                     'param2'     => 'attributegroup',
                     'value2'     => $attributeGroup->getId()
                 )),
-                $name,
-                'pane-navi-link attribute-group',
-                array(
-                    'data-pane-title' => ''
-                ),
-                null
+                'paneTitle' => ''
             );
+//            $data['link'] = $linkHelper->getHtml(
+//                $name,
+//                $this->url()->fromRoute('home/default', array(
+//                    'controller' => 'template',
+//                    'action'     => 'attributes',
+//                    'param'      => 'template',
+//                    'value'      => $template->getId(),
+//                    'param2'     => 'attributegroup',
+//                    'value2'     => $attributeGroup->getId()
+//                )),
+//                $name,
+//                'pane-navi-link attribute-group',
+//                array(
+//                    'data-pane-title' => ''
+//                ),
+//                null
+//            );
 
-            $attributeGroupsList[] = $liString;
+            $attributeGroupsList[] = $data;
         }
 
         return $attributeGroupsList;

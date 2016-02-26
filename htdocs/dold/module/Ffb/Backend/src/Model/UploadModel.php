@@ -89,7 +89,11 @@ class UploadModel extends AbstractBaseModel {
             $criteries['destination'] = $destination;
         }
 
-        return $this->getRepository()->findBy($criteries, null, $limit);
+        $order = array(
+            'rank' => 'DESC'
+        );
+
+        return $this->getRepository()->findBy($criteries, $order, $limit);
     }
 
     /**

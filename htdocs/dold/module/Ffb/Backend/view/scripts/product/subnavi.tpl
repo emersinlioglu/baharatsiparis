@@ -33,21 +33,27 @@
 
                 {$this->span('', 'edit', $item.span.attributes)}
 
-                <a class="pane-navi-link product"
+                <a class="pane-navi-link product{if $item.link.isSystem} system{/if}"
                    href="{$item.link.url}"
                    title="{$item.link.masterTrans}"
                    data-pane-title="{$item.link.paneTitle}"
-                   data-copy-url="{$item.link.copyUrl}"
+                   {*data-copy-url="{$item.link.copyUrl}"*}
                    data-delete-url="{$item.link.deleteUrl}">
 
                     {foreach item="trans" from=$item.link.translations key="langCode"}
                         <span class="tr lang-{$langCode}">
-                        {if !$trans}
-                            <span class="no-trans">{$item.link.masterTrans}</span>
-                        {else}
-                            {$trans}
-                        {/if}
-                    </span>
+                            {if !$trans}
+                                <span class="no-trans">
+                                    {if $item.link.masterTrans}
+                                        {$item.link.masterTrans}
+                                    {else}
+                                        {$this->translate('LBL_NO_TRANSLATION')}
+                                    {/if}
+                                </span>
+                            {else}
+                                {$trans}
+                            {/if}
+                        </span>
                     {/foreach}
                 </a>
 

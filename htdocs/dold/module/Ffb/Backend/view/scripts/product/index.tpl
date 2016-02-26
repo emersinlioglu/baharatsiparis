@@ -2,6 +2,7 @@
 {$script=$this->headScript()->appendFile('js/backend/ProductController.js')}
 {$script = $this->headScript()->appendFile('js/backend/form/ProductForm.js')}
 {$script = $this->headScript()->appendFile('js/backend/form/CategoryForm.js')}
+{$script = $this->headScript()->appendFile('js/backend/form/SortCategoriesForm.js')}
 
 <!-- controls -->
 <div class="controls">
@@ -29,8 +30,16 @@
 >
 
     <div class="tab-content-header">
-        <h2>{$this->translate('TTL_CATEGORIES')}</h2>
-        {$uriAddEntity}
+        <form class="form-default form-search-category-navi">
+            <h2>{$this->translate('TTL_CATEGORIES')}</h2>
+            {$uriAddEntity}
+
+            <div class="row select actions">
+                <select name="productGroupActions" class="product-groups-actions">
+                    <option value="1" data-href="category/sort" data-pane-title="">Soriteren</option>
+                </select>
+            </div>
+        </form>
     </div>
 
      {if $items}

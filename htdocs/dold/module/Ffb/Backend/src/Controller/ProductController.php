@@ -247,12 +247,12 @@ class ProductController extends AbstractBackendController {
             }
 
             if ($isAssigned || $categoryId == null) {
-//                $productList[] = $span . $liString;
                 $productList[] = array(
                     'link' => array(
                         'masterTrans' => $masterTrans,
                         'translations' => $translations,
-                        'class' => 'pane-navi-link product' . ($product->getIsSystem() ? ' system' : ''),
+                        'isSystem' => $product->getIsSystem(),
+                        //'class' => 'pane-navi-link product' . ($product->getIsSystem() ? ' system' : ''),
                         'url' => $this->url()->fromRoute('home/default', array(
                             'controller' => 'product',
                             'action'     => 'productvariants',

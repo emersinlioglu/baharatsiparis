@@ -37,23 +37,47 @@
             {if $tab.items}
                 <ul class="ffb-accordion navi main-navi-list dont-init">
                     {foreach item=item from=$tab.items}
-                        {if $item|is_array}
-                            <li>
-                                {if $item.title|strlen gt 0}
-                                    <a class="accordion-title" href="#" class="title">{$item.title}</a>
-                                {/if}
-                                <ul class="accordion-content">
-                                    {foreach from=$item.values item=value}
-                                        <li class="pane-navi-link-cnt">{$value}</li>
-                                    {/foreach}
-                                </ul>
-                            </li>
-                        {else}
-                            <li class="pane-navi-link-cnt">
-                                <span class="entry-action hidden"></span>
-                                <span class="entry-name">{$item}</span>
-                            </li>
-                        {/if}
+
+                        <li class="pane-navi-link-cnt">
+                            <span class="entry-action hidden"></span>
+                            <span class="entry-name">
+
+                                {$this->span('', 'edit', $item.span.attributes)}
+
+                                <a class="pane-navi-link attributes"
+                                   href="{$item.link.url}"
+                                   title="{$item.link.masterTrans}"
+                                   data-pane-title="{$item.link.paneTitle}"
+                                   data-copy-url="{$item.link.copyUrl}"
+                                   data-delete-url="{$item.link.deleteUrl}">
+
+                                    {if $tab.type == 'templates'}
+
+                                        {$item.link.masterTrans}
+
+                                    {else}
+                                        {foreach item="trans" from=$item.link.translations key="langCode"}
+                                            <span class="tr lang-{$langCode}">
+                                                {if !$trans}
+                                                    <span class="no-trans">
+                                                        {if $item.link.masterTrans}
+                                                            {$item.link.masterTrans}
+                                                        {else}
+                                                            {$this->translate('LBL_NO_TRANSLATION')}
+                                                        {/if}
+                                                    </span>
+                                                {else}
+                                                    {$trans}
+                                                {/if}
+                                            </span>
+                                        {/foreach}
+                                    {/if}
+
+                                </a>
+
+                            </span>
+                        </li>
+
                     {/foreach}
                 </ul>
             {/if}

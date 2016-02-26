@@ -16,7 +16,13 @@
                     {foreach item="trans" from=$item.link.translations key="langCode"}
                         <span class="tr lang-{$langCode}">
                             {if !$trans}
-                                <span class="no-trans">{$item.link.masterTrans}</span>
+                                <span class="no-trans">
+                                    {if $item.link.masterTrans}
+                                        {$item.link.masterTrans}
+                                    {else}
+                                        {$this->translate('LBL_NO_TRANSLATION')}
+                                    {/if}
+                                </span>
                             {else}
                                 {$trans}
                             {/if}
@@ -48,7 +54,13 @@
                     {foreach item="trans" from=$item.link.translations key="langCode"}
                         <span class="tr lang-{$langCode}">
                             {if !$trans}
-                                <span class="no-trans">{$item.link.masterTrans}</span>
+                                <span class="no-trans">
+                                    {if $item.link.masterTrans}
+                                        {$item.link.masterTrans}
+                                    {else}
+                                        {$this->translate('LBL_NO_TRANSLATION')}
+                                    {/if}
+                                </span>
                             {else}
                                 {$trans}
                             {/if}

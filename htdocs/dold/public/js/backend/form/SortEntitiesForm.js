@@ -48,25 +48,25 @@ var SortEntitiesForm = function(form, opt) {
                 var url = _.form.attr('action');
                 //get content
                 this.request = ajaxAttributeGroupForm.call(
-                        url,
-                        function (data) {
+                    url,
+                    function (data) {
 
-                            var result = ajax.isJSON(data);
+                        var result = ajax.isJSON(data);
 
-                            if (result.state !== 'ok') {
-                                var errorData = ajax.parseError(data);
-                                ffbLightbox.showInfo({
-                                    'title': ffbTranslator.translate('TTL_ERROR'),
-                                    'className': 'error',
-                                    'text': errorData.message
-                                });
-                            }
-                        },
-                        {
-                            'data': _.form.serialize(),
-                            'type': 'post',
-                            'accepts': 'json'
+                        if (result.state !== 'ok') {
+                            var errorData = ajax.parseError(data);
+                            ffbLightbox.showInfo({
+                                'title': ffbTranslator.translate('TTL_ERROR'),
+                                'className': 'error',
+                                'text': errorData.message
+                            });
                         }
+                    },
+                    {
+                        'data': _.form.serialize(),
+                        'type': 'post',
+                        'accepts': 'json'
+                    }
                 );
 
             }

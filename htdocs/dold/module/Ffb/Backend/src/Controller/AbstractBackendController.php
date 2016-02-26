@@ -141,11 +141,12 @@ abstract class AbstractBackendController extends Mvc\Controller\AbstractActionCo
     /**
      * On Dispatch callBack
      *
-     * @param \Zend\Mvc\MvcEvent $e
+     * @param Mvc\MvcEvent $e
+     * @return mixed
      */
     public function onDispatch(Mvc\MvcEvent $e) {
 
-        parent::onDispatch($e);
+        $actionResponse = parent::onDispatch($e);
 
         // DERTMS-852: Add Application Version Number to title-Tag
         // if user is logged in
@@ -200,6 +201,8 @@ abstract class AbstractBackendController extends Mvc\Controller\AbstractActionCo
                     break;
             }
         }
+
+        return $actionResponse;
     }
 
     /**
@@ -261,6 +264,21 @@ abstract class AbstractBackendController extends Mvc\Controller\AbstractActionCo
             }
 
             return;
+        }
+
+        // if no user is logged in and request is xhr, set status code to 500 and
+        // set redirect information for login page to response
+        if ($this->getRequest()->isXmlHttpRequest()) {
+            $ajaxReloginResponse = new \Zend\Http\Response();
+            $ajaxReloginResponse->setStatusCode(\Zend\Http\Response::STATUS_CODE_500);
+            $ajaxReloginResponse->setContent(
+                'redirectto:' . $this->url()->fromRoute('home/default', array(
+                        'controller' => 'auth',
+                        'action' => 'login'
+                    )
+                )
+            );
+            return $ajaxReloginResponse;
         }
 
         return $this->redirect()->toRoute('home/default', array(

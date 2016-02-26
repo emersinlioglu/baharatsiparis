@@ -170,59 +170,61 @@ class AttributeController extends AbstractBackendController {
         $result     = array();
 
         $attributeGroupModel = new Model\AttributeGroupModel($this->getServiceLocator(), $this->logger);
+        $langModel           = new Model\LangModel($this->getServiceLocator(), $this->logger);
 
+        /* @var $attrGroup \Ffb\Backend\Entity\AttributeGroupEntity */
         foreach ($attributeGroupModel->findAll() as $attrGroup) {
-            /* @var $attrGroup \Ffb\Backend\Entity\AttributeGroupEntity */
-            /* @var $trans \Ffb\Backend\Entity\AttributeGroupLangEntity */
-            $trans = $attrGroup->getCurrentTranslation();
 
-            $link = $linkHelper->getHtml(
-                $trans->getName(),
-                $this->url()->fromRoute('home/default', array(
-                    'controller' => 'attribute',
-                    'action'     => 'subnavi',
-                    'param'      => 'attributegroup',
-                    'value'      => $attrGroup->getId()
-                )),
-                $trans->getName(),
-                'pane-navi-link attributes',
-                array(
-                    'data-pane-title' => '&nbsp;',
-                    'data-copy-url'   => $this->url()->fromRoute('home/default', array(
+            $masterTrans = $attrGroup->getCurrentTranslation($this->getMasterLang())->getName();
+            $translations = array();
+            foreach($langModel->getActiveLanguagesAsArray() as $langId => $langCode) {
+                $translations[$langCode] = $attrGroup->getCurrentTranslation($langId)->getName();
+            }
+
+            $result[] = array(
+                'link' => array(
+                    'masterTrans' => $masterTrans,
+                    'translations' => $translations,
+                    //'class' => 'pane-navi-link attributes',
+                    'url' => $this->url()->fromRoute('home/default', array(
+                        'controller' => 'attribute',
+                        'action'     => 'subnavi',
+                        'param'      => 'attributegroup',
+                        'value'      => $attrGroup->getId()
+                    )),
+                    'paneTitle' => '&nbsp;', //data-pane-title
+                    'copyUrl' => $this->url()->fromRoute('home/default', array( //data-copy-url
                         'controller' => 'attributegroup',
                         'action'     => 'copy',
                         'param'      => 'attributegroup',
                         'value'      => $attrGroup->getId()
                     )),
-                    'data-delete-url' => $this->url()->fromRoute('home/default', array(
+                    'deleteUrl' => $this->url()->fromRoute('home/default', array( //data-delete-url
                         'controller' => 'attributegroup',
                         'action'     => 'delete',
                         'param'      => 'attributegroup',
                         'value'      => $attrGroup->getId()
                     )),
-                    'data-form-url'   => $this->url()->fromRoute('home/default', array(
+                    'formUrl' => $this->url()->fromRoute('home/default', array( // data-form-url
                         'controller' => 'attributegroup',
                         'action'     => 'form',
                         'param'      => 'attributegroup',
                         'value'      => $attrGroup->getId()
                     ))
+                ),
+                'span' => array(
+                    //'class' => 'edit',
+                    'attributes' => array(
+                        'data-form-url' => $this->url()->fromRoute('home/default', array(
+                            'controller' => 'attributegroup',
+                            'action'     => 'form',
+                            'param'      => 'attributegroup',
+                            'value'      => $attrGroup->getId()
+                        ))
+                    )
                 )
             );
 
-            $span = $spanHelper->getHtml(
-                '',
-                'edit',
-                array(
-                    'data-form-url' => $this->url()->fromRoute('home/default', array(
-                        'controller' => 'attributegroup',
-                        'action'     => 'form',
-                        'param'      => 'attributegroup',
-                        'value'      => $attrGroup->getId()
-                    ))
-                )
-            );
-
-            $result[] = $span . $link;
         }
 
         return $result;
@@ -237,59 +239,63 @@ class AttributeController extends AbstractBackendController {
 
         // get model(s)
         $templateModel = new Model\TemplateModel($this->getServiceLocator(), $this->logger);
+        $langModel     = new Model\LangModel($this->getServiceLocator(), $this->logger);
         $linkHelper    = new Helper\HtmlLinkHelper();
         $spanHelper    = new Helper\HtmlSpanHelper();
 
         $result = array();
         foreach ($templateModel->findAll() as $template) {
 
-            $link = $linkHelper->getHtml(
-                $template->getName(),
-                $this->url()->fromRoute('home/default', array(
-                    'controller' => 'template',
-                    'action'     => 'subnavi',
-                    'param'      => 'template',
-                    'value'      => $template->getId()
-                )),
-                $template->getName(),
-                'pane-navi-link template',
-                array(
-                    'data-pane-title' => '&nbsp;', //$this->translator->translate('TTL_ATTRIBUTE_GROUP'),
-                    'data-delete-url' => $this->url()->fromRoute('home/default', array(
+//            $masterTrans = $template->getCurrentTranslation($this->getMasterLang())->getName();
+//            $translations = array();
+//            foreach($langModel->getActiveLanguagesAsArray() as $langId => $langCode) {
+//                $translations[$langCode] = $template->getCurrentTranslation($langId)->getName();
+//            }
+
+            $result[] = array(
+                'link' => array(
+                    'masterTrans' => $template->getName(),
+//                    'translations' => $translations,
+                    //'class' => 'pane-navi-link template',
+                    'url' => $this->url()->fromRoute('home/default', array(
                         'controller' => 'template',
-                        'action'     => 'delete',
+                        'action'     => 'subnavi',
                         'param'      => 'template',
                         'value'      => $template->getId()
                     )),
-                    'data-copy-url'   => $this->url()->fromRoute('home/default', array(
+                    'paneTitle' => '&nbsp;', //data-pane-title
+                    'copyUrl' => $this->url()->fromRoute('home/default', array( //data-copy-url
                         'controller' => 'template',
                         'action'     => 'copy',
                         'param'      => 'template',
                         'value'      => $template->getId()
                     )),
-                    'data-form-url'   => $this->url()->fromRoute('home/default', array(
+                    'deleteUrl' => $this->url()->fromRoute('home/default', array( //data-delete-url
+                        'controller' => 'template',
+                        'action'     => 'delete',
+                        'param'      => 'template',
+                        'value'      => $template->getId()
+                    )),
+                    'formUrl' => $this->url()->fromRoute('home/default', array( // data-form-url
                         'controller' => 'template',
                         'action'     => 'form',
                         'param'      => 'template',
                         'value'      => $template->getId()
                     ))
+                ),
+                'span' => array(
+                    //'class' => 'edit',
+                    'attributes' => array(
+                        'data-form-url' => $this->url()->fromRoute('home/default', array(
+                            'controller' => 'template',
+                            'action'     => 'form',
+                            'param'      => 'template',
+                            'value'      => $template->getId()
+                        ))
+                    )
                 )
             );
 
-            $span = $spanHelper->getHtml(
-                '',
-                'edit',
-                array(
-                    'data-form-url' => $this->url()->fromRoute('home/default', array(
-                        'controller' => 'template',
-                        'action'     => 'form',
-                        'param'      => 'template',
-                        'value'      => $template->getId()
-                    ))
-                )
-            );
-
-            $result[] = $span . $link;
         }
 
         return $result;
@@ -397,6 +403,7 @@ class AttributeController extends AbstractBackendController {
         // get model(s)
         $attributeModel      = new Model\AttributeModel($this->getServiceLocator(), $this->logger);
         $attributeGroupModel = new Model\AttributeGroupModel($this->getServiceLocator(), $this->logger);
+        $langModel           = new Model\LangModel($this->getServiceLocator(), $this->logger);
 
         $attributes = $attributeModel->findForSubnavi($data);
 
@@ -413,12 +420,19 @@ class AttributeController extends AbstractBackendController {
         /*  @var $attribute Entity\AttributeEntity */
         foreach ($attributes as $attribute) {
 
+            $itemData = array();
             $name = $attribute->getCurrentTranslation()->getName();
+
+            $masterTrans = $attribute->getCurrentTranslation($this->getMasterLang())->getName();
+            $translations = array();
+            foreach($langModel->getActiveLanguagesAsArray() as $langId => $langCode) {
+                $translations[$langCode] = $attribute->getCurrentTranslation($langId)->getName();
+            }
 
             $isAssigned = false;
             /*@var $attributeGroupAttribute Entity\AttributeGroupAttributeEntity */
             foreach ($attribute->getAttributeGroupAttributes() as $attributeGroupAttribute) {
-                $isAssigned = $attributeGroupId == $attributeGroupAttribute->getAttributeGroup()->getId();
+                $isAssigned = ($attributeGroupId == $attributeGroupAttribute->getAttributeGroup()->getId());
                 if ($isAssigned) {
                     break;
                 }
@@ -426,7 +440,6 @@ class AttributeController extends AbstractBackendController {
 
             // set checkbox value for isAssigned and add attribute id for better selection in js
             $checkbox->setValue($isAssigned);
-//            $checkbox->setAttribute('data-attribute-id', $attribute->getId());
             $checkbox->setAttribute('data-href', $this->url()->fromRoute('home/default', array(
                 'controller' => 'attributeGroup',
                 'action'     => 'attributeAssignment',
@@ -436,16 +449,15 @@ class AttributeController extends AbstractBackendController {
                 'value2'     => $attributeGroupId
             )));
 
-            // render checkbox
-            $liString = '';
             if ($attributeGroupId > 0) {
-                $liString = $checkboxHelper->render($checkbox);
+                $itemData['checkbox'] = $checkboxHelper->render($checkbox);
             }
 
-            // render link
-            $liString .= $linkHelper->getHtml(
-                $name,
-                $this->url()->fromRoute('home/default', array(
+            $itemData['link'] = array(
+                'masterTrans' => $masterTrans,
+                'translations' => $translations,
+                //'class' => 'pane-navi-link attribute',
+                'url' => $this->url()->fromRoute('home/default', array(
                     'controller' => 'attribute',
                     'action'     => 'form',
                     'param'      => 'attribute',
@@ -453,21 +465,41 @@ class AttributeController extends AbstractBackendController {
                     'param2'     => 'attributegroup',
                     'value2'     => $attributeGroupId
                 )),
-                $name,
-                'pane-navi-link attribute',
-                array(
-                    'data-pane-title' => '',
-                    'data-delete-url' => $this->url()->fromRoute('home/default', array(
-                        'controller' => 'attribute',
-                        'action'     => 'delete',
-                        'param'      => 'attribute',
-                        'value'      => $attribute->getId()
-                    ))
-                ),
-                null
+                'paneTitle' => '', // data-pane-title
+                'deleteUrl' => $this->url()->fromRoute('home/default', array( // data-delete-url
+                    'controller' => 'attribute',
+                    'action'     => 'delete',
+                    'param'      => 'attribute',
+                    'value'      => $attribute->getId()
+                ))
             );
 
-            $attributeList[] = $liString;
+//            // render link
+//            $data['link'] = $linkHelper->getHtml(
+//                $name,
+//                $this->url()->fromRoute('home/default', array(
+//                    'controller' => 'attribute',
+//                    'action'     => 'form',
+//                    'param'      => 'attribute',
+//                    'value'      => $attribute->getId(),
+//                    'param2'     => 'attributegroup',
+//                    'value2'     => $attributeGroupId
+//                )),
+//                $name,
+//                'pane-navi-link attribute',
+//                array(
+//                    'data-pane-title' => '',
+//                    'data-delete-url' => $this->url()->fromRoute('home/default', array(
+//                        'controller' => 'attribute',
+//                        'action'     => 'delete',
+//                        'param'      => 'attribute',
+//                        'value'      => $attribute->getId()
+//                    ))
+//                ),
+//                null
+//            );
+
+            $attributeList[] = $itemData;
         }
 
         return $attributeList;

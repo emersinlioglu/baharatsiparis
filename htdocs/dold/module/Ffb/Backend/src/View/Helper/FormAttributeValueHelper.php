@@ -164,6 +164,8 @@ class FormAttributeValueHelper extends \Zend\Form\View\Helper\AbstractHelper {
             case Entity\AttributeEntity::TYPE_VARCHAR:
             case Entity\AttributeEntity::TYPE_INT:
             case Entity\AttributeEntity::TYPE_FLOAT:
+            case Entity\AttributeEntity::TYPE_RANGE_INT:
+            case Entity\AttributeEntity::TYPE_RANGE_FLOAT:
                 $html = $pValue;
                 break;
             case Entity\AttributeEntity::TYPE_TEXT:
@@ -175,10 +177,6 @@ class FormAttributeValueHelper extends \Zend\Form\View\Helper\AbstractHelper {
                 $checkbox->setValue($pValue);
                 $checkbox->setAttribute('disabled', 'disabled');
                 $html = $renderer($checkbox);
-                break;
-            case Entity\AttributeEntity::TYPE_RANGE_INT:
-                break;
-            case Entity\AttributeEntity::TYPE_RANGE_FLOAT:
                 break;
             case Entity\AttributeEntity::TYPE_IMAGE:
             case Entity\AttributeEntity::TYPE_DOCUMENT:
@@ -202,19 +200,23 @@ class FormAttributeValueHelper extends \Zend\Form\View\Helper\AbstractHelper {
      * Returns label
      * @return string
      */
-    private function _getLabel($element) {
+    private function _getLabel(ElementInterface $element) {
 
         // standard label
         $label = $element->getLabel();
 
         // label in master lang
         $masterTranslation = $element->getLabelOption('labelInMasterLang');
-        if (strlen($masterTranslation) > 0) {
+        if(!$element->hasAttribute('isValueMax')) {
             $labelInMasterLang = ' <span class="master-lang">(%s)</span>';
+            if (!$masterTranslation) {
+                $masterTranslation = $this->translator->translate('LBL_NO_TRANSLATION');
+            }
             $labelInMasterLang = sprintf($labelInMasterLang, $masterTranslation);
             $label .= $labelInMasterLang;
         }
 
+        // valueMax can be empty
         if (strlen($label) == 0) {
             $label = ' ';
         }

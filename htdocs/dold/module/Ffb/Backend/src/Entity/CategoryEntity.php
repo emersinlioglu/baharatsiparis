@@ -27,6 +27,12 @@ class CategoryEntity extends AbstractTranslatableEntity {
     protected $id;
 
     /**
+     * @var int
+     * @ORM\Column(name="sort", type="integer", nullable=false, options={"unsigned":true})
+     */
+    protected $sort;
+
+    /**
      * @var TemplateEntity
      * @ORM\OneToOne(targetEntity="TemplateEntity")
      * @ORM\JoinColumn(name="template_id", referencedColumnName="id")
@@ -42,6 +48,7 @@ class CategoryEntity extends AbstractTranslatableEntity {
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
+     * @ORM\OrderBy({"sort" = "ASC"})
      * @ORM\OneToMany(targetEntity="CategoryEntity", mappedBy="parent", cascade={"persist", "remove"}, orphanRemoval=true, fetch="LAZY")
      */
     protected $childeren;
@@ -88,6 +95,20 @@ class CategoryEntity extends AbstractTranslatableEntity {
      */
     public function setId($id) {
         $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSort() {
+        return $this->sort;
+    }
+
+    /**
+     * @param int $sort
+     */
+    public function setSort($sort) {
+        $this->sort = $sort;
     }
 
     /**

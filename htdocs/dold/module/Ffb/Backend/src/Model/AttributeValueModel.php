@@ -134,5 +134,37 @@ class AttributeValueModel extends AbstractBaseModel {
         return $value = implode(';', $result);
     }
 
+    /**
+     * @param $product
+     * @param $attribute
+     * @param $language
+     * @return mixed
+     */
+    public function findByAtributeProductAndLanguage($product, $attribute, $language) {
+        $qb = $this->getRepository()->createQueryBuilder('attributeValue');
+
+        $qb->leftJoin('attributeValue.productLang', 'productLang');
+        $qb->leftJoin('productLang.translationTarget', 'product');
+        $qb->leftJoin('attributeValue.attributeLang', 'attributeLang');
+        $qb->leftJoin('attributeLang.translationTarget', 'attribute');
+        $qb->leftJoin('attributeLang.lang', 'attributeLangLang');
+        $qb->andWhere('product.id = :productId');
+        $qb->andWhere('attribute.id = :attributeId');
+        $qb->andWhere('attributeLangLang.iso = :iso');
+
+        $qb->setParameter('iso', $language);
+        $qb->setParameter('productId', $product->getId());
+        $qb->setParameter('attributeId', $attribute->getId());
+
+        $result = $qb->getQuery()->getResult();
+
+        if (count($result) > 0) {
+            $result = $result[0];
+        } else {
+            $result = null;
+        }
+
+        return $result;
+    }
 
 }

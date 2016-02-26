@@ -1,20 +1,20 @@
 RewriteEngine On
 
 #rewrite to 4fb.de if we are not 4fb or local network user
-RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1$
-RewriteCond %{REMOTE_ADDR} !^192\.168
-# SERVER
-RewriteCond %{REMOTE_ADDR} !^178\.200\.124\.149$
-# FFB
-RewriteCond %{REMOTE_ADDR} !^83\.236\.182\.28$
-# DER & REWE
-RewriteCond %{REMOTE_ADDR} !^217\.110\.62\.223$
-RewriteCond %{REMOTE_ADDR} !^213\.69\.204\.203$
-# Subdomain pilot.nuernbergmesse.de
-RewriteCond %{REMOTE_ADDR} !^62\.91\.56\.228$
-# this UAT itself
-RewriteCond %{REMOTE_ADDR} !^10\.58\.87\.128$
-RewriteRule .* http://www.4fb.de [R=307,L]
+#RewriteCond %{REMOTE_ADDR} !^127\.0\.0\.1$
+#RewriteCond %{REMOTE_ADDR} !^192\.168
+## SERVER
+#RewriteCond %{REMOTE_ADDR} !^178\.200\.124\.149$
+## FFB
+#RewriteCond %{REMOTE_ADDR} !^83\.236\.182\.28$
+## DER & REWE
+#RewriteCond %{REMOTE_ADDR} !^217\.110\.62\.223$
+#RewriteCond %{REMOTE_ADDR} !^213\.69\.204\.203$
+## Subdomain pilot.nuernbergmesse.de
+#RewriteCond %{REMOTE_ADDR} !^62\.91\.56\.228$
+## this UAT itself
+#RewriteCond %{REMOTE_ADDR} !^10\.58\.87\.128$
+#RewriteRule .* http://www.4fb.de [R=307,L]
 
 
 # The following rule tells Apache that if the requested filename

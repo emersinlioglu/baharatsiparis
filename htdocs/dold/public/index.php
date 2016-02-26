@@ -70,17 +70,17 @@ require 'init_autoloader.php';
 
 // Run the application! plese disable modules in application.ini files, not here
 $whiteModulesList = array(
-    'SmartyModule',
     'DoctrineModule',
     'DoctrineORMModule',
     'ZendDeveloperTools'
 );
-/*if (substr($_SERVER['REQUEST_URI'], 0, '6') === '/admin') {
-    $whiteModulesList[] = 'Ffb\Backend';
+
+if (substr($_SERVER['REQUEST_URI'], 0, '4') === '/api') {
+    $whiteModulesList[] = 'Ffb\Api';
 } else {
-    $whiteModulesList[] = 'Ffb\Tagungshotel';
-}*/
-$whiteModulesList[] = 'Ffb\Backend';
+    $whiteModulesList[] = 'Ffb\Backend';
+    $whiteModulesList[] = 'SmartyModule';
+}
 
 Zend\Mvc\Application::init(
     Loader::getApplicationConfig(

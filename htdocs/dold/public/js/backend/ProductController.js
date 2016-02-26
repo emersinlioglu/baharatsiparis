@@ -11,6 +11,7 @@ var ProductController = new function() {
 
     var _ = this;
     var _request = null;
+    var _dropdowns = null;
 
     /**
      * reflow
@@ -244,6 +245,14 @@ var ProductController = new function() {
 
         //init accordion
         new ffbAccordion(pane.find('.ffb-accordion.navi'), false);
+
+        // product-group-actions
+        var fi = new FormInitializer();
+        _dropdowns = fi.initDropdowns($('.product-groups-actions'));
+        _dropdowns['productGroupActions'].opt.onSelect = function(element, index, value) {
+            var selectedOption = $(element).find('option').get(index);
+            myApp.pm.getContent($(selectedOption));
+        };
     }
 
     /**

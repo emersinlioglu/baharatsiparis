@@ -30,16 +30,16 @@
 {$this->form()->closeTag()}
 <!-- /form-user -->
 {if $formSortEntities}
-  <div class="ffb-accordion">
-    <div class="accordion-title">
-      {$this->translate('TTL_SORT_ATTRIBUTE_GROUPS')}
-    </div>
-    <div class="accordion-content">
+    <div class="ffb-accordion">
+        <div class="accordion-title">
+            {$this->translate('TTL_SORT_ATTRIBUTE_GROUPS')}
+        </div>
+        <div class="accordion-content">
 
-      {include file='../partials/form/sortable.tpl'}
+            {include file='../partials/form/sortable.tpl'}
 
+        </div>
     </div>
-  </div>
 {/if}
 {literal}
     <script>

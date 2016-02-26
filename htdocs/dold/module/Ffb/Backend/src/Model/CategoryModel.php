@@ -5,6 +5,7 @@ namespace Ffb\Backend\Model;
 use DoctrineORMModule\Proxy\__CG__\Ffb\Backend\Entity\CategoryEntity;
 use Ffb\Backend\Entity;
 
+use Ffb\Common\I18n\Translator\Translator;
 use Zend\ServiceManager;
 
 /**
@@ -35,6 +36,7 @@ class CategoryModel extends AbstractBaseModel {
 
         $qb = $this->getRepository()->createQueryBuilder('category');
         $qb->andWhere($qb->expr()->isNull('category.parent'));
+        $qb->orderBy('category.sort', 'ASC');
 
         return $qb->getQuery()->getResult();
     }
@@ -224,15 +226,76 @@ class CategoryModel extends AbstractBaseModel {
      * @param Entity\CategoryEntity|null $category
      * @return array
      */
-    public function getRootCategoriesTree(Entity\CategoryEntity $category = null) {
+    public function getRootCategoriesTree(Entity\CategoryEntity $category = null, $masterLang) {
         $result = array();
+        $langModel = new LangModel($this->_sl, $this->_logger);
 
         if ($category) {
             do {
-                $catName = $category->getCurrentTranslation()->getName();
-                array_unshift($result, $catName);
+                $masterTrans = $category->getCurrentTranslation($masterLang)->getName();
+                $translations = array();
+                foreach($langModel->getActiveLanguagesAsArray() as $langId => $langCode) {
+                    $translations[$langCode] = $category->getCurrentTranslation($langId)->getName();
+                }
+
+                $data = array(
+                    'masterTrans' => $masterTrans,
+                    'translations' => $translations
+                );
+
+                array_unshift($result, $data);
 
             } while($category = $category->getParent());
+        }
+
+        return $result;
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getCategorySortTree() {
+
+        // prepare category items
+        $items = array();
+        foreach ($this->getFirstLevelProductCategories() as $category) {
+            $items[] = $this->_getCategorySortData($category);
+        }
+
+        return $items;
+    }
+
+    private function _getCategorySortData(Entity\CategoryEntity $category) {
+
+        // entities
+        $trans            = $category->getCurrentTranslation();
+        $subCategories    = $category->getChilderen();
+        $hasSubCategories = count($subCategories) > 0;
+        $url              = $this->_sl->get('ViewHelperManager')->get('url');
+        $result           = array();
+
+        // checkboxes
+        $formInput = new \Zend\Form\View\Helper\FormInput();
+
+        $hiddenInput = new \Zend\Form\Element\Hidden("category[{$category->getId()}]");
+        $hiddenInput->setValue($category->getSort());
+
+        // result
+        $name = $trans->getName();
+        if (!$name) {
+            $name = Translator::translate('LBL_NO_TRANSLATION');
+        }
+
+        $result['title']       = $name;
+        $result['id']          = $category->getId();
+        $result['hiddenInput'] = $formInput->render($hiddenInput);
+        $result['subitems']    = array();
+        $result['hasSubitems'] = $hasSubCategories;
+        if ($hasSubCategories) {
+            foreach ($subCategories as $subCategory) {
+                $result['subitems'][] = $this->_getCategorySortData($subCategory);
+            }
         }
 
         return $result;

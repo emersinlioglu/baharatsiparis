@@ -385,4 +385,63 @@ class CategoryController extends AbstractBackendController {
         return $view;
     }
 
+    /**
+     * Sort attribute group attributes
+     *
+     * @return \Zend\View\Model\ViewModel
+     */
+    public function sortAction() {
+
+        $view = new ZendModel\ViewModel(array(
+            'state' => 'ok'
+        ));
+
+        try {
+            // check access via ACL
+            if (!$this->checkAccess($this->auth->getIdentity(), self::AREA, 'edit', $view)) {
+                return $view;
+            }
+
+            // get model(s)
+            $categoryModel = new Model\CategoryModel($this->getServiceLocator(), $this->logger);
+
+            // check post
+            if ($this->getRequest()->isPost()) {
+
+                // get data
+                $data = $this->getRequest()->getPost();
+
+                foreach ($data->get('category') as $categoryId => $sort) {
+
+                    $category = $categoryModel->findById($categoryId);
+                    $category->setSort($sort);
+                    $categoryModel->update($category);
+                }
+
+
+                $categories = $categoryModel->getFirstLevelProductCategories();
+                if (count($categories) > 0) {
+                    $firstCategoryId = $categories[0]->getId();
+                    $view->setVariable('categoryUrl', $this->url()->fromRoute('home/default', array(
+                        'controller' => 'product',
+                        'action' => 'subnavi',
+                        'param' => 'category',
+                        'value' => $firstCategoryId
+                    )));
+                }
+
+            } else {
+                // GET Request
+                $categorySortTree = $categoryModel->getCategorySortTree();
+                $view->setVariable('categorySortTree', $categorySortTree);
+            }
+
+        } catch (\Exception $ex) {
+
+            $this->_displayException($view, $ex);
+        }
+
+        return $view;
+    }
+
 }

@@ -116,7 +116,7 @@ abstract class AbstractTranslatableEntity extends \Ffb\Common\Entity\AbstractBas
 
             if (is_null($locale)) {
                 $locale = 'de';
-                error_log('could not find lang in session .. assume "de"');
+                //error_log('could not find lang in session .. assume "de"');
             }
         }
 
