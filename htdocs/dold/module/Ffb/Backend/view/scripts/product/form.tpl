@@ -30,12 +30,14 @@
                     {include file='../partials/form/input_hidden.tpl' fieldName='lang'        form=$trans}
                     {include file='../partials/form/input_text.tpl'   fieldName='name'        form=$trans}
                     {include file='../partials/form/input_text.tpl'   fieldName='description' form=$trans}
-                    {include file='../partials/form/input_text.tpl'   fieldName='alias'       form=$trans}
+                    {*{include file='../partials/form/input_text.tpl'   fieldName='alias'       form=$trans}*}
                 </div>
             {/foreach}
 
-            {include file='../partials/form/select.tpl'       fieldName='isSystem' class="is-system"}
-            {include file='../partials/form/select.tpl'       fieldName='parent' class="parent"}
+            {include file='../partials/form/input_hidden.tpl' fieldName='isSystem' class="is-system"}
+            {include file='../partials/form/input_hidden.tpl' fieldName='parent' class="parent"}
+            {include file='../partials/form/input_text.tpl'   fieldName='price'}
+            {include file='../partials/form/input_text.tpl'   fieldName='imageUrl'}
             {include file='../partials/form/select.tpl'       fieldName='online' class="online"}
             {include file='../partials/form/input_hidden.tpl' fieldName='isRoot'}
 
@@ -43,210 +45,210 @@
 
         </div>
 
-        <div class="column full details">
-            <div class="row header">
-                <h2>
-                    {if $product}
-                        {if $product->getParent()}
-                        <i>(Produktvariante)</i>
-                        {/if}
-                        {$product->getCurrentTranslation()->getName()}
-                        <span class="icon-edit"></span>
-                        <span class="info">
-                            | <span class="text">ID: {$product->getId()}</span>
-                        </span>
-                    {/if}
-                </h2>
-            </div>
-        </div>
+            {*<div class="column full details">*}
+                {*<div class="row header">*}
+                    {*<h2>*}
+                        {*{if $product}*}
+                            {*{if $product->getParent()}*}
+                            {*<i>(Produktvariante)</i>*}
+                            {*{/if}*}
+                            {*{$product->getCurrentTranslation()->getName()}*}
+                            {*<span class="icon-edit"></span>*}
+                            {*<span class="info">*}
+                                {*| <span class="text">ID: {$product->getId()}</span>*}
+                            {*</span>*}
+                        {*{/if}*}
+                    {*</h2>*}
+                {*</div>*}
+            {*</div>*}
 
-        <hr>
+            {*<hr>*}
 
-        {if $form->get('id')->getValue()}
-        <div class="column full">
-            {* attributeGroups *}
-            {foreach from=$attributeGroups item=attributeGroup key=attributeGroupId}
+            {*{if $form->get('id')->getValue()}*}
+            {*<div class="column full">*}
+                {* attributeGroups *}
+                {*{foreach from=$attributeGroups item=attributeGroup key=attributeGroupId}*}
 
-                {*$inheritCheckboxList = array()*}
+                    {*$inheritCheckboxList = array()*}
 
-                {* lamella *}
-                <div class="ffb-accordion lamella">
-                    <div class="accordion-title">
-                        <span class="title">{$attributeGroup.name}</span>
-                        <span class="delete">&nbsp;</span>
-                    </div>
-                    <div class="accordion-content">
+                    {* lamella *}
+                    {*<div class="ffb-accordion lamella">*}
+                        {*<div class="accordion-title">*}
+                            {*<span class="title">{$attributeGroup.name}</span>*}
+                            {*<span class="delete">&nbsp;</span>*}
+                        {*</div>*}
+                        {*<div class="accordion-content">*}
 
-                        {* attributes *}
-                        {foreach item=attribute from=$attributeGroup.attributes key=attributeId}
+                            {* attributes *}
+                            {*{foreach item=attribute from=$attributeGroup.attributes key=attributeId}*}
 
-                            {* translations *}
-                            {foreach item=productLangFs from=$form->get('translations')}
-
-                                {* variables *}
-                                {$productLangLangId     = $productLangFs->get('lang')->getValue()}
-
-                                {* attributeValues *}
-                                {foreach item=attributeValueFs from=$productLangFs->get('attributeValues')}
-
-                                    {* fieldsets *}
-                                    {*$productLangFs         = $productLangFs*}
-                                    {*$attributeValueFs      = $attributeValueFs*}
-                                    {$attributeGroupFs      = $attributeValueFs->get('attributeGroup')}
-                                    {$attributeLangFs       = $attributeValueFs->get('attributeLang')}
-                                    {$attributeFs           = $attributeLangFs->get('translationTarget')}
+                                {* translations *}
+                                {*{foreach item=productLangFs from=$form->get('translations')}*}
 
                                     {* variables *}
-                                    {$formAttributeId       = $attributeFs->get('id')->getValue()}
-                                    {$formAttributeGroupId  = $attributeGroupFs->get('id')->getValue()}
-                                    {$attributeLangLangId   = $attributeLangFs->get('lang')->getValue()}
-                                    {*$productLangId         = $productLangFs->get('id')->getValue()*}
-                                    {*$attributeLangId       = $attributeLangFs->get('id')->getValue()*}
+                                    {*{$productLangLangId     = $productLangFs->get('lang')->getValue()}*}
 
-                                    {* show attribute *}
-                                    {if $formAttributeId eq $attributeId
-                                        and $formAttributeGroupId eq $attributeGroupId
-                                        and $productLangLangId eq $attributeLangLangId
-                                    }
+                                    {* attributeValues *}
+                                    {*{foreach item=attributeValueFs from=$productLangFs->get('attributeValues')}*}
 
-                                        <div class="trans lang-{$productLangFs->get('lang')->getValue()}">
+                                        {* fieldsets *}
+                                        {*$productLangFs         = $productLangFs*}
+                                        {*$attributeValueFs      = $attributeValueFs*}
+                                        {*{$attributeGroupFs      = $attributeValueFs->get('attributeGroup')}*}
+                                        {*{$attributeLangFs       = $attributeValueFs->get('attributeLang')}*}
+                                        {*{$attributeFs           = $attributeLangFs->get('translationTarget')}*}
 
-                                            {* get attribute type *}
-                                            {$attributeType = $attributeFs->get('type')->getValue()}
+                                        {* variables *}
+                                        {*{$formAttributeId       = $attributeFs->get('id')->getValue()}*}
+                                        {*{$formAttributeGroupId  = $attributeGroupFs->get('id')->getValue()}*}
+                                        {*{$attributeLangLangId   = $attributeLangFs->get('lang')->getValue()}*}
+                                        {*$productLangId         = $productLangFs->get('id')->getValue()*}
+                                        {*$attributeLangId       = $attributeLangFs->get('id')->getValue()*}
 
-                                            {* fields *}
-                                            {$field    = $attributeValueFs->get('value')}
-                                            {$fieldMin = $attributeValueFs->get('valueMin')}
-                                            {$fieldMax = $attributeValueFs->get('valueMax')}
+                                        {* show attribute *}
+                                        {*{if $formAttributeId eq $attributeId*}
+                                            {*and $formAttributeGroupId eq $attributeGroupId*}
+                                            {*and $productLangLangId eq $attributeLangLangId*}
+                                        {*}*}
 
-                                            {include file='../partials/form/input_hidden.tpl' fieldName='id'         form=$attributeValueFs}
-                                            {include file='../partials/form/input_check.tpl' fieldName='isInherited' form=$attributeValueFs class='is-inherited'}
+                                            {*<div class="trans lang-{$productLangFs->get('lang')->getValue()}">*}
 
-                                            {if $attributeType == 6 or $attributeType == 7}
-                                                {* TYPE_RANGE_INT   = 6; *}
-                                                {* TYPE_RANGE_FLOAT = 7; *}
-                                                <div class="range-values">
-                                                    {*{$attributeType} :*}
-                                                    {$this->formAttributeValue($fieldMin)}
-                                                    {$this->formAttributeValue($fieldMax)}
-                                                </div>
-                                            {else}
+                                                {* get attribute type *}
+                                                {*{$attributeType = $attributeFs->get('type')->getValue()}*}
 
-                                                {* default *}
-                                                {$this->formAttributeValue($field)}
+                                                {* fields *}
+                                                {*{$field    = $attributeValueFs->get('value')}*}
+                                                {*{$fieldMin = $attributeValueFs->get('valueMin')}*}
+                                                {*{$fieldMax = $attributeValueFs->get('valueMax')}*}
 
-                                            {/if}
+                                                {*{include file='../partials/form/input_hidden.tpl' fieldName='id'         form=$attributeValueFs}*}
+                                                {*{include file='../partials/form/input_check.tpl' fieldName='isInherited' form=$attributeValueFs class='is-inherited'}*}
 
-                                            {if $attributeType == 8 or $attributeType == 9}
-                                                {* TYPE_IMAGE    = 8; *}
-                                                {* TYPE_DOCUMENT = 9; *}
-                                                {include file='../partials/form/input_hidden.tpl' fieldName='referenceType' form=$attributeValueFs}
-                                            {/if}
+                                                {*{if $attributeType == 6 or $attributeType == 7}*}
+                                                    {* TYPE_RANGE_INT   = 6; *}
+                                                    {* TYPE_RANGE_FLOAT = 7; *}
+                                                    {*<div class="range-values">*}
+                                                        {*{$attributeType} :*}
+                                                        {*{$this->formAttributeValue($fieldMin)}*}
+                                                        {*{$this->formAttributeValue($fieldMax)}*}
+                                                    {*</div>*}
+                                                {*{else}*}
 
-                                        </div>
-                                    {/if}
+                                                    {* default *}
+                                                    {*{$this->formAttributeValue($field)}*}
 
-                                {/foreach}
-                                {* /attributeValues *}
+                                                {*{/if}*}
 
-                            {/foreach}
-                            {* /translations *}
+                                                {*{if $attributeType == 8 or $attributeType == 9}*}
+                                                    {* TYPE_IMAGE    = 8; *}
+                                                    {* TYPE_DOCUMENT = 9; *}
+                                                    {*{include file='../partials/form/input_hidden.tpl' fieldName='referenceType' form=$attributeValueFs}*}
+                                                {*{/if}*}
 
-                        {/foreach}
-                        {* /attributes *}
+                                            {*</div>*}
+                                        {*{/if}*}
 
-                    </div>
-                </div>
-                {* /lamella *}
+                                    {*{/foreach}*}
+                                    {* /attributeValues *}
 
-            {/foreach}
-            {* /attributeGroups *}
+                                {*{/foreach}*}
+                                {* /translations *}
 
-        </div>
-        {/if}
+                            {*{/foreach}*}
+                            {* /attributes *}
 
-    </div>
-    <!-- /columns -->
+                        {*</div>*}
+                    {*</div>*}
+                    {* /lamella *}
 
-    {if $product && $product->getId()}
-        <!-- tabs -->
-        <div class="tabs">
-            {if $product->getIsSystem()}
-                <div class="tab active" data-content="linked-products">
-                    <span>{$this->translate('TTL_PRODUCT_LINKED_PRODUCTS')}</span>
-                </div>
-            {/if}
-            <div class="tab{if !$product->getIsSystem()} active{/if}" data-content="accessory-products">
-                <span>{$this->translate('TTL_PRODUCT_ACCESSORIES')}</span>
-            </div>
-            <div class="tab" data-content="multiple-usage">
-                <span>{$this->translate('TTL_PRODUCT_MULTIPLE_USAGE')}</span>
-            </div>
-        </div>
-        {if $product->getIsSystem()}
-            <div class="tab-content assigned-products linked-products" data-content="linked-products"
-                 data-search-url="{$dataSearchProductUrl}"
-                 data-add-url="{$dataAddLinkedProductUrl}">
-                <div class="row text controlls">
-                    <input class="search-product">
-                </div>
-                <div class="results">
-                    {$linkedProductList}
-                </div>
-            </div>
-        {/if}
-        <div class="tab-content assigned-products accessory-products" data-content="accessory-products"
-            data-search-url="{$dataSearchProductUrl}"
-            data-add-url="{$dataAddAccessoryProductUrl}">
-            <div class="row text controlls">
-               <input class="search-product">
-            </div>
-            <div class="results">
-               {$accessoryProductsList}
-            </div>
-        </div>
-        <div class="tab-content multiple-usage" data-content="multiple-usage">
-            <ul class=category-list>
-                {foreach from=$multipleUsageCategoryTree item=entry}
-                    <li class="pane-navi-link-cnt">
+                {*{/foreach}*}
+                {* /attributeGroups *}
+
+            {*</div>*}
+            {*{/if}*}
+
+        {*</div>*}
+        {*<!-- /columns -->*}
+
+    {*{if $product && $product->getId()}*}
+        {*<!-- tabs -->*}
+        {*<div class="tabs">*}
+            {*{if $product->getIsSystem()}*}
+                {*<div class="tab active" data-content="linked-products">*}
+                    {*<span>{$this->translate('TTL_PRODUCT_LINKED_PRODUCTS')}</span>*}
+                {*</div>*}
+            {*{/if}*}
+            {*<div class="tab{if !$product->getIsSystem()} active{/if}" data-content="accessory-products">*}
+                {*<span>{$this->translate('TTL_PRODUCT_ACCESSORIES')}</span>*}
+            {*</div>*}
+            {*<div class="tab" data-content="multiple-usage">*}
+                {*<span>{$this->translate('TTL_PRODUCT_MULTIPLE_USAGE')}</span>*}
+            {*</div>*}
+        {*</div>*}
+        {*{if $product->getIsSystem()}*}
+            {*<div class="tab-content assigned-products linked-products" data-content="linked-products"*}
+                 {*data-search-url="{$dataSearchProductUrl}"*}
+                 {*data-add-url="{$dataAddLinkedProductUrl}">*}
+                {*<div class="row text controlls">*}
+                    {*<input class="search-product">*}
+                {*</div>*}
+                {*<div class="results">*}
+                    {*{$linkedProductList}*}
+                {*</div>*}
+            {*</div>*}
+        {*{/if}*}
+        {*<div class="tab-content assigned-products accessory-products" data-content="accessory-products"*}
+            {*data-search-url="{$dataSearchProductUrl}"*}
+            {*data-add-url="{$dataAddAccessoryProductUrl}">*}
+            {*<div class="row text controlls">*}
+               {*<input class="search-product">*}
+            {*</div>*}
+            {*<div class="results">*}
+               {*{$accessoryProductsList}*}
+            {*</div>*}
+        {*</div>*}
+        {*<div class="tab-content multiple-usage" data-content="multiple-usage">*}
+            {*<ul class=category-list>*}
+                {*{foreach from=$multipleUsageCategoryTree item=entry}*}
+                    {*<li class="pane-navi-link-cnt">*}
                         {*{$entry.checkbox}*}
                         {*<a class="pane-navi-link attribute-group" title="Mikro" href="#"*}
                            {*data-pane-title="">*}
-                            {$entry.title}
+                            {*{$entry.title}*}
                         {*</a>*}
-                        <ul>
-                            {foreach from=$entry.subitems item=subentry}
-                                <li class="pane-navi-link-cnt second-level">
+                        {*<ul>*}
+                            {*{foreach from=$entry.subitems item=subentry}*}
+                                {*<li class="pane-navi-link-cnt second-level">*}
                                     {*{$subentry.checkbox}*}
                                     {*<a class="pane-navi-link attribute-group" title="Mikro" href="#"*}
                                        {*data-pane-title="">*}
-                                        {$subentry.title}
+                                        {*{$subentry.title}*}
                                     {*</a>*}
-                                    <ul>
-                                        {foreach from=$subentry.subitems item=subsubentry}
-                                            <li class="pane-navi-link-cnt third-level">
-                                                {$subsubentry.checkbox}
+                                    {*<ul>*}
+                                        {*{foreach from=$subentry.subitems item=subsubentry}*}
+                                            {*<li class="pane-navi-link-cnt third-level">*}
+                                                {*{$subsubentry.checkbox}*}
                                                 {*<a class="pane-navi-link attribute-group" title="Mikro" href="#"*}
                                                    {*data-pane-title="">*}
-                                                    {$subsubentry.title}
+                                                    {*{$subsubentry.title}*}
                                                 {*</a>*}
-                                            </li>
-                                        {/foreach}
-                                    </ul>
-                                </li>
-                            {/foreach}
-                        </ul>
-                    </li>
-                {/foreach}
-            </ul>
-        </div>
-        <!-- /tabs -->
+                                            {*</li>*}
+                                        {*{/foreach}*}
+                                    {*</ul>*}
+                                {*</li>*}
+                            {*{/foreach}*}
+                        {*</ul>*}
+                    {*</li>*}
+                {*{/foreach}*}
+            {*</ul>*}
+        {*</div>*}
+        {*<!-- /tabs -->*}
 
         {* Log AttributeValues *}
-        {if $showLog}
-            {include file='./log.tpl'}
-        {/if}
-    {/if}
+        {*{if $showLog}*}
+            {*{include file='./log.tpl'}*}
+        {*{/if}*}
+    {*{/if}*}
 
 {$this->form()->closeTag()}
 <!-- /form-user -->

@@ -143,13 +143,18 @@ var ProductController = new function() {
         });
 
         // get product variants
-        subpane.find('.pane-navi-link').off().click(_.getProductVariants);
+        //subpane.find('.pane-navi-link').off().click(_.getProductVariants);
 
         // edit product icon
         subpane.find('.pane-navi-link-cnt .edit').click(function(e) {
             e.preventDefault();
             var link = $('<a>').attr('href' , $(this).data('form-url'));
             pm.getMainPaneContent(link);
+        });
+
+        subpane.find('.pane-navi-link').click(function(e) {
+            e.preventDefault();
+            $(this).closest('.pane-navi-link-cnt').find('.edit').click();
         });
 
         // products overlay menu
@@ -211,14 +216,10 @@ var ProductController = new function() {
         pane.find('.edit').off();
 
         // init edit
-        pm.panes.first().find('.edit').click(function(e) {
+        pm.panes.first().find('.edit, .pane-navi-link').click(function(e) {
             e.preventDefault();
-            e.stopPropagation();
-
             var link = $('<a>').attr('href', $(this).data('form-url'));
             pm.getContent(link);
-
-            return false;
         });
 
         // init add new category
@@ -227,7 +228,7 @@ var ProductController = new function() {
             myApp.pm.getContent($(this));
         });
 
-        // init click
+        //// init click
         pm.panes.first().find('.pane-navi-link').click(function(e) {
             e.preventDefault();
             pm.getSubnavi($(this));

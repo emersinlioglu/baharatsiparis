@@ -1,5 +1,10 @@
 <?php
 return array(
+
+    //CUSTOM
+    'LBL_PRODUCT_PRICE' => 'Preis',
+    'LBL_PRODUCT_IMAGE_URL' => 'Bild-Url',
+
     // BTN
     'BTN_ADD_ATTRIBUTE'                                     => 'Attribute',
     'BTN_ADD_USER'                                          => 'Benutzer Hinzufügen',

@@ -279,90 +279,90 @@ class ProductService extends AbstractService {
         if ($product->getId()) {
             // attributeValues must be persisted
             // so that the form can work with atrribute value ids
-            $productModel->createMissingAttributeValues($product/*, $category*/);
+            //$productModel->createMissingAttributeValues($product/*, $category*/);
 
             // update
-            $productModel->update($product);
+            //$productModel->update($product);
         }
 
         // bind and prepare
         $form->bind($product);
         $form->prepare();
 
-        // parent value options
-        $parentValueOptions = $productModel->getParentValueOptions($product/*, $category*/);
-        $form->get('parent')->setValueOptions($parentValueOptions);
-        if ($parentProduct) {
-            $form->get('parent')->setValue($parentProduct->getId());
-        }
+//        // parent value options
+//        $parentValueOptions = $productModel->getParentValueOptions($product/*, $category*/);
+//        $form->get('parent')->setValueOptions($parentValueOptions);
+//        if ($parentProduct) {
+//            $form->get('parent')->setValue($parentProduct->getId());
+//        }
 
         // get images for attributes
-        if ($product->getId()) {
-
-            $parent = $product->getParent();
-
-            // get root product
-            $rootProduct = null;
-            if ($productCategory = $product->getProductCategories()->first()) {
-                $pCategory = $productCategory->getCategory();
-                if ($pCategory && $pCategory->getDefaultProduct()) {
-                    $rootProduct = $pCategory->getDefaultProduct();
-                }
-            }
-
-            // set images and documents
-            foreach ($form->get('translations') as $productLangFs) {
-                foreach ($productLangFs->get('attributeValues') as $attributeValueFs) {
-
-                    //{*$productLangFs         = $productLangFs*}
-                    //{*$attributeValueFs      = $attributeValueFs*}
-                    //{$attributeGroupFs      = $attributeValueFs->get('attributeGroup')}
-                    //{$attributeLangFs       = $attributeValueFs->get('attributeLang')}
-                    //{$attributeFs           = $attributeLangFs->get('translationTarget')}
-                    $attributeLangFs  = $attributeValueFs->get('attributeLang');
-                    $attributeGroupFs = $attributeValueFs->get('attributeGroup');
-                    $attributeFs      = $attributeLangFs->get('translationTarget');
-
-                    $attributeGroupId    = $attributeGroupFs->get('id')->getValue();
-                    $attributeLangId     = $attributeLangFs->get('id')->getValue();
-                    $langId              = $attributeLangFs->get('lang')->getValue();
-                    $attributeId         = $attributeFs->get('id')->getValue();
-
-                    /* @var $attribute Entity\AttributeEntity */
-                    $attribute = $attributeModel->findById($attributeId);
-
-                    // set form element params
-                    $this->_setProductFormElementParams(
-                        $attributeValueFs,
-                        $attribute,
-                        $langId
-                    );
-
-                    // set file upload params
-                    $this->_setProductFormFileParams(
-                        $attributeValueFs,
-                        $attribute,
-                        $attributeValueModel
-                    );
-
-                    // set parent attribute values
-                    $this->_setProductFormParentValues(
-                        $product,
-                        $rootProduct,
-                        $attribute,
-                        $attributeValueFs,
-                        $attributeValueModel,
-                        array(
-                            'attributeGroupId' => $attributeGroupId,
-                            'attributeLangId'  => $attributeLangId,
-                            'langId'           => $langId
-                        )
-                    );
-
-                }
-            }
-
-        }
+//        if ($product->getId()) {
+//
+//            $parent = $product->getParent();
+//
+//            // get root product
+//            $rootProduct = null;
+//            if ($productCategory = $product->getProductCategories()->first()) {
+//                $pCategory = $productCategory->getCategory();
+//                if ($pCategory && $pCategory->getDefaultProduct()) {
+//                    $rootProduct = $pCategory->getDefaultProduct();
+//                }
+//            }
+//
+//            // set images and documents
+//            foreach ($form->get('translations') as $productLangFs) {
+//                foreach ($productLangFs->get('attributeValues') as $attributeValueFs) {
+//
+//                    //{*$productLangFs         = $productLangFs*}
+//                    //{*$attributeValueFs      = $attributeValueFs*}
+//                    //{$attributeGroupFs      = $attributeValueFs->get('attributeGroup')}
+//                    //{$attributeLangFs       = $attributeValueFs->get('attributeLang')}
+//                    //{$attributeFs           = $attributeLangFs->get('translationTarget')}
+//                    $attributeLangFs  = $attributeValueFs->get('attributeLang');
+//                    $attributeGroupFs = $attributeValueFs->get('attributeGroup');
+//                    $attributeFs      = $attributeLangFs->get('translationTarget');
+//
+//                    $attributeGroupId    = $attributeGroupFs->get('id')->getValue();
+//                    $attributeLangId     = $attributeLangFs->get('id')->getValue();
+//                    $langId              = $attributeLangFs->get('lang')->getValue();
+//                    $attributeId         = $attributeFs->get('id')->getValue();
+//
+//                    /* @var $attribute Entity\AttributeEntity */
+//                    $attribute = $attributeModel->findById($attributeId);
+//
+//                    // set form element params
+//                    $this->_setProductFormElementParams(
+//                        $attributeValueFs,
+//                        $attribute,
+//                        $langId
+//                    );
+//
+//                    // set file upload params
+//                    $this->_setProductFormFileParams(
+//                        $attributeValueFs,
+//                        $attribute,
+//                        $attributeValueModel
+//                    );
+//
+//                    // set parent attribute values
+//                    $this->_setProductFormParentValues(
+//                        $product,
+//                        $rootProduct,
+//                        $attribute,
+//                        $attributeValueFs,
+//                        $attributeValueModel,
+//                        array(
+//                            'attributeGroupId' => $attributeGroupId,
+//                            'attributeLangId'  => $attributeLangId,
+//                            'langId'           => $langId
+//                        )
+//                    );
+//
+//                }
+//            }
+//
+//        }
 
         return $form;
     }

@@ -82,6 +82,13 @@ class ProductForm extends AbstractBackendForm {
                 )
             ))
             ->add(array(
+                'name' => 'imageUrl',
+                'type' => 'Text',
+                'options' => array(
+                    'label' => 'LBL_PRODUCT_IMAGE_URL'
+                )
+            ))
+            ->add(array(
                 'name' => 'isRoot',
                 'type' => 'Hidden',
                 'attributes' => array(
@@ -165,6 +172,13 @@ class ProductForm extends AbstractBackendForm {
                 'allow_empty' => true,
                 'validators' => array(
                     $this->_validators['int']
+                )
+            ))
+            ->add(array(
+                'name' => 'imageUrl',
+                'allow_empty' => true,
+                'validators' => array(
+                    $this->_validators['string_length_max_256']
                 )
             ))
                 ;

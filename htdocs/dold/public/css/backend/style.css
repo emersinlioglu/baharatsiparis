@@ -62,7 +62,7 @@ header .navi .main-menu li a {
 
 /* panemanager */
 .panemanager {
-    top: 160px;
+    top: 93px;
 }
 .panemanager > .panemanager-pane .mainnavi-container .tab-content-header {
     margin: 0 0 20px 40px;
@@ -233,7 +233,7 @@ body.dold .panemanager-pane.sub-navi-pane form .form-header {
     margin-bottom: 14px;
 }
 body.dold header .navi {
-    height: 117px;
+    height: 50px;
 }
 body.dold header .navi .main-menu li {
     /*padding: 0 0 0 50px;*/

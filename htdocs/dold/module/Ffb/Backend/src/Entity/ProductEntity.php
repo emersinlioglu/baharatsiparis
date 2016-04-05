@@ -46,9 +46,9 @@ class ProductEntity extends Entity\AbstractTranslatableEntity {
 
     /**
      * @var float
-     * @ORM\Column(name="price", type="string", options={"default":255, "unsigned":true})
+     * @ORM\Column(name="price", type="float", options={"default":255, "unsigned":true})
      */
-    protected $price;
+    protected $price = 0.0;
 
     /**
      * @var boolean
@@ -67,6 +67,13 @@ class ProductEntity extends Entity\AbstractTranslatableEntity {
      * @ORM\Column(name="is_system", type="boolean", options={"default": false})
      */
     protected $isSystem = 0;
+
+
+    /**
+     * @var string
+     * @ORM\Column(name="image_url", type="string", options={"default":256})
+     */
+    protected $imageUrl;
 
     /**
      * @var ProductEntity
@@ -230,6 +237,20 @@ class ProductEntity extends Entity\AbstractTranslatableEntity {
      */
     function setIsSystem($isSystem) {
         $this->isSystem = $isSystem;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageUrl() {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param string $imageUrl
+     */
+    public function setImageUrl($imageUrl) {
+        $this->imageUrl = $imageUrl;
     }
 
     /**
