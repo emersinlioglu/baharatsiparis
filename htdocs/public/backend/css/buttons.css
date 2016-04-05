@@ -1,0 +1,185 @@
+/* buttons */
+.button {
+    /*border-radius: 8px;*/
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    height: 23px;
+    line-height: 23px;
+    padding: 0 11px;
+    text-decoration: none;
+}
+input.button {
+    height: 25px;
+    line-height: normal;
+}
+
+/* delete buttons are anchors instead of inputs but should look alike */
+a.button {
+    display: inline-block;
+}
+.button.box {
+    border-radius: 0;
+    font-weight: bold;
+}
+.button.gray {
+    background: #888;
+    border: 1px solid #888;
+    color: #fff;
+}
+.button.gray:hover {
+    /*background: #efefef;*/
+}
+.button.gray.add {
+    background: url(../../backend/images/icon_plus_l.png) no-repeat scroll 7px center #888;
+    padding: 0 11px 0 26px;
+}
+.button.gray.add:hover {
+    background: url(../../backend/images/icon_plus_l.png) no-repeat scroll 7px center #888;
+}
+.button.gray.close {
+    background: url(../../backend/images/icon_close_white.png) no-repeat scroll 7px center #888;
+    padding: 0 11px 0 26px;
+    text-transform: lowercase;
+}
+.button.gray.close:hover {
+    background: url(../../backend/images/icon_close_white.png) no-repeat scroll 7px center #efefef;
+}
+.button.gray.file {
+    background: url(../../backend/images/icon_folder.png) no-repeat scroll 7px center #888;
+    overflow: hidden;
+    padding: 0 11px 0 26px;
+}
+.button.gray.file:hover {
+    background: url(../../backend/images/icon_folder.png) no-repeat scroll 7px center #888;
+}
+.button.gray.pencil {
+    background: url(../../backend/images/icon_pencil.png) no-repeat scroll 7px center #888;
+    overflow: hidden;
+    padding: 0 11px 0 26px;
+}
+.button.gray.pencil:hover {
+    background: url(../../backend/images/icon_pencil_hover.png) no-repeat scroll 7px center #efefef;
+}
+.button.gray.plus {
+    background: url(../../backend/images/icon_new_plus.png) no-repeat scroll 7px center #888;
+    padding: 0 11px 0 26px;
+}
+.button.gray.plus:hover,
+.button.gray.plus:focus {
+    background: url(../../backend/images/icon_new_plus.png) no-repeat scroll 7px center #aaa;
+}
+.button.gray.view {    
+    background: #888;
+    padding: 0 30px 0 11px;
+    position: relative;
+}
+.button.gray.view:after {
+    background: url(../../backend/images/icon_table_view_white.png) no-repeat scroll center center transparent;
+    content: '';
+    height: 23px;
+    position: absolute;
+    right: 7px;
+    top: 0;
+    width: 15px;
+}
+.button.gray.view:hover,
+.button.gray.view:focus {
+    background: #aaa;
+}
+
+.button.green {
+    background: #15a374;
+    border: 1px solid #15a374;
+    color: #fff;
+}
+.button.green:hover {
+    background: #17be87;
+    border: 1px solid #17be87;
+}
+.button.green.add {
+    background: url(../../backend/images/icon_new.png) no-repeat scroll 7px center #15a374;
+    padding: 0 11px 0 26px;
+}
+.button.green.add:hover {
+    background: url(../../backend/images/icon_new.png) no-repeat scroll 7px center #17be87;
+}
+.button.green.plus {
+    background: url(../../backend/images/icon_new_plus.png) no-repeat scroll 7px center #15a374;
+    padding: 0 11px 0 26px;
+}
+.button.green.plus:hover {
+    background: url(../../backend/images/icon_new_plus.png) no-repeat scroll 7px center #17be87;
+}
+.button.green.save {
+    background: url(../../backend/images/icon_save.png) no-repeat scroll 7px center #15a374;
+    padding: 0 11px 0 26px;
+}
+.button.green.save:hover {
+    background: url(../../backend/images/icon_save.png) no-repeat scroll 7px center #17be87;
+}
+.button.green.envelop {
+    background: url(../../backend/images/icon_envelop.png) no-repeat scroll 7px center #15a374;
+    padding: 0 11px 0 30px;
+}
+.button.light-gray {
+    background: #efefef;
+    border: 1px solid #efefef;
+    color: #999;
+}
+.button.light-gray:hover {
+    background: #efefef;
+}
+.button.red {
+    background: #bf002b;
+    border: 1px solid #bf002b;
+    color: #fff;
+}
+.button.red:hover {
+    background: #bf002b;
+    border: 1px solid #bf002b;
+}
+.button.transparent {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+}
+.button.white {
+    background: #fff;
+    border: 1px solid #999;
+    color: #999;
+}
+.button.white:hover {
+    background: #efefef;
+}
+.button.white.close {
+    background: url(../../backend/images/icon_close.png) no-repeat scroll 7px center #fff;
+    padding: 0 11px 0 26px;
+    /*text-transform: lowercase;*/
+}
+.button.white.close:hover {
+    background: url(../../backend/images/icon_close.png) no-repeat scroll 7px center #efefef;
+}
+.button.white.preview {
+     background: url(../../backend/images/icon_table_view.png) no-repeat scroll 7px center #fff;
+     padding: 0 11px 0 26px;
+     /*text-transform: lowercase;*/
+ }
+.button.white.preview:hover {
+    background: url(../../backend/images/icon_table_view.png) no-repeat scroll 7px center #efefef;
+}
+
+.button.light-gray {
+    background: #eee;
+    border: 1px solid #eee;
+    color: #555;
+}
+.button.light-gray:hover {
+    /*background: #efefef;*/
+}
+
+.button.small {
+    font-size: 10px;
+    height: 17px;
+    line-height: 17px;
+}

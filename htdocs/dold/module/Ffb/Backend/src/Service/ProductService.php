@@ -137,7 +137,7 @@ class ProductService extends AbstractService {
 
             // parent categorie tree
             if ($category) {
-                $categories = $categoryModel->getRootCategoriesTree($category);
+                $categories = $categoryModel->getRootCategoriesTree($category, $this->_masterLang);
                 $view->setVariable('categories', $categories);
             }
 

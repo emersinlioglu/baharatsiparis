@@ -1,0 +1,97 @@
+/* colorpicker*/
+/* styling for DERTMS-832 */
+.colorPicker-palette.backgroundColor div.info-text {    
+    display: none;
+}
+.colorPicker-palette.backgroundColor hr {    
+    display: none;
+}
+.colorPicker-palette.backgroundColor .colorpicker-header {
+    margin-bottom: 9px;
+}
+/* /styling for DERTMS-832 */
+.colorPicker-picker {
+    /*background: url("arrow.gif") no-repeat scroll right top rgba(0, 0, 0, 0);*/
+    border: 1px solid #eee;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 16px;
+    line-height: 16px;
+    margin: 5px 0 0 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    width: 16px;
+}
+.colorPicker-palette {
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 2px;
+    position: absolute;
+    width: 160px;
+    z-index: 9999;
+}
+.colorPicker_hexWrap {
+    float: left;
+    width: 100%;
+}
+.colorPicker_hexWrap label {
+    color: #2F2F2F;
+    font-size: 11px;
+    margin: 5px 2px;
+    width: 25%;
+}
+.colorPicker_hexWrap input {
+    border: 1px solid #000;
+    font-size: 12px;
+    margin: 5px 8px;
+    padding: 0;
+    width: 37%;
+    padding-left: 7px;
+}
+.colorpicker-header {
+    color: #fff;
+    height: 20px;
+    background-color: #BF002B;
+    font-size: 11px;
+    text-align: left;
+    line-height: 20px;
+    padding: 0 0 0 5px;
+}
+.colorPicker-swatch {
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 9px;
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    margin: 2px;
+    width: 16px;
+}
+.colorPicker-swatch > span {
+    background: rgb(164, 220, 255);
+    border: 1px solid #eee;
+    display: block;
+    height: 12px;
+    border-radius: 7px;
+    width: 12px;
+    position: relative;
+    left: 1px;
+    top: 1px;
+}
+.colorPicker-palette > .info-text {
+    padding: 5px 2px 3px 2px;
+    font-size: 11px;
+}
+.colorPicker-palette > hr {
+    height: 0px;
+}
+/*
+.hr-wrapp{
+    display: block;
+    height:5px;
+    width:160px;
+}*/

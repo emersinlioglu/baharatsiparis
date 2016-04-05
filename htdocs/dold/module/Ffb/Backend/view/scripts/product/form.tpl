@@ -18,7 +18,23 @@
         <div class="row full category-breadcrumb">
             <ul>
                 {foreach item="category" from=$categories}
-                    <li>{$category}</li>
+                    <li>
+                        {foreach item="trans" from=$category.translations key="langCode"}
+                            <span class="tr lang-{$langCode}">
+                                {if !$trans}
+                                    <span class="no-trans">
+                                        {if $item.link.masterTrans}
+                                            {$item.link.masterTrans}
+                                        {else}
+                                            {$this->translate('LBL_NO_TRANSLATION')}
+                                        {/if}
+                                    </span>
+                                {else}
+                                    {$trans}
+                                {/if}
+                            </span>
+                        {/foreach}
+                    </li>
                 {/foreach}
             </ul>
         </div>

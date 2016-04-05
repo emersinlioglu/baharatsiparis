@@ -1,0 +1,24 @@
+# Ignore general stuff, e.g. Eclipse, NetBeans, Mac OS X
+#  This section should be used within all projects.
+/.buildpath
+/.project
+/.settings
+/.idea
+/nbproject
+
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.svn
+.Trashes
+*.spool
+*.swp
+ehthumbs.db
+[Tt]humbs.db
+*.sublime-project
+*.sublime-workspace
+.jasy
+
+# User defined development folder to ignore. Use this to put whatever you want in it.
+.devlocal

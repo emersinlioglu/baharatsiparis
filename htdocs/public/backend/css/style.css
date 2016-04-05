@@ -1,0 +1,768 @@
+/* main */
+body {
+    font-size: 12px;
+    line-height: 1.25;
+    min-width: 768px;
+    overflow: hidden;
+}
+
+/* container */
+.container {
+    margin: 0 auto;
+    max-width: 930px;
+    min-width: 768px;
+    padding: 0 50px 0 20px;
+}
+
+/* ffb-accordion */
+.ffb-accordion {
+    margin: 0 0 10px 0;
+}
+.ffb-accordion .accordion-title {
+    background: transparent url("../common/images/icon_accordion_link.png") no-repeat scroll 4px center;
+    color: #666;
+    font-size: 15px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 0 0 25px;
+    text-transform: uppercase;
+}
+
+/* accordion */
+.ffb-accordion.navi {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.ffb-accordion.navi li {
+
+}
+.ffb-accordion.navi li:hover {
+
+}
+.ffb-accordion.navi li a {
+    background: none;
+    color: #999;
+    display: table-cell;
+    font-size: 13px;
+    height: 40px;
+    line-height: 15px;
+    overflow: hidden;
+    /*padding: 0 0 0 30px;*/
+    text-decoration: none;
+    vertical-align: middle;
+    word-wrap: break-word;
+    /*width: 210px;*/
+}
+.ffb-accordion li a:hover,
+.ffb-accordion li a.selected{
+    /*background-color: #eee;*/
+    /*color: #555;*/
+}
+.ffb-accordion.navi li li a {
+
+}
+.ffb-accordion.navi .accordion-title {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    width: 210px;
+}
+.ffb-accordion.navi .accordion-title:hover {
+    /*background-color: #eee;*/
+}
+.ffb-accordion.navi .accordion-title + .accordion-title {
+    border-top: none;
+}
+.ffb-accordion.navi .accordion-title {
+    background-image: url(../../backend/images/icon_dropdown.png);
+    background-position: 210px center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.ffb-accordion.navi .accordion-title.open {
+
+}
+.ffb-accordion.navi .accordion-content {
+    display: block;
+}
+.ffb-accordion .accordion-content.open:last-child {
+    border-bottom: 1px solid #eee;
+}
+.ffb-accordion.navi .accordion-closed .accordion-content {
+    display: none;
+}
+
+/* main-navi-list */
+.ffb-accordion.navi.main-navi-list {
+    padding: 0;
+}
+.ffb-accordion.navi.main-navi-list li {
+    height: 40px;
+    padding: 0;
+    /*overflow: hidden;*/
+    width: 240px;
+}
+.ffb-accordion.navi.main-navi-list .entry-action {
+    cursor: pointer;
+    display: none;
+    float: left;
+    height: 40px;
+    margin: 0;
+    width: 50px;
+}
+.ffb-accordion.navi.main-navi-list .entry-name {
+    display: block;
+    height: 40px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.ffb-accordion.navi.main-navi-list li.active,
+.ffb-accordion.navi.main-navi-list li:hover {
+    background-color: #eee;
+}
+.ffb-accordion.navi.main-navi-list li.active .entry-action {
+    background: url("../../../backend/images/icon_arrow_list.png") no-repeat scroll 12px center #eee;
+    display: block;
+}
+.ffb-accordion.navi.main-navi-list li.active .entry-name {
+    margin: 0;
+}
+.ffb-accordion.navi.main-navi-list .overlay-wrapper {
+    background-color: #5c5c5c;
+    height:40px;
+    position: absolute;
+    z-index:100;
+}
+.ffb-accordion.navi.main-navi-list .overlay-wrapper:hover {
+    background-color: #5c5c5c;
+}
+.ffb-accordion.navi.main-navi-list .overlay-title {
+    border-right: 2px solid #fff;
+    color: #fff;
+    display: table-cell;
+    height: 40px;
+    padding: 0 0 0 5px;
+    vertical-align: middle;
+    /*@see DERTRA-805*/
+    /*width: 152px;*/
+    width: 196px;
+}
+.ffb-accordion.navi.main-navi-list .overlay.delete {
+    background: url("../../../backend/images/icon_delete.png") no-repeat scroll center center red;
+    border-right: 2px solid #fff;
+    cursor: pointer;
+    /*@see DERTRA-805*/
+    /*display: table-cell;*/
+    display: none;
+    height: 40px;
+    width: 40px;
+}
+.ffb-accordion.navi.main-navi-list .overlay.copy {
+    background: url("../../../backend/images/icon_copy.png") no-repeat scroll center center #5c5c5c;
+    cursor: pointer;
+    display: table-cell;
+    height: 40px;
+    width: 40px;
+}
+.ffb-accordion.navi.main-navi-list .overlay.delete.disabled {
+    background-color: #5c5c5c;
+    cursor: default;
+}
+.ffb-accordion.navi.main-navi-list .overlay.copy.disabled {
+    background-color: #5c5c5c;
+    cursor: default;
+}
+.ffb-accordion.navi.main-navi-list .dialog-title {
+    background-color: #eee;
+    border-top: 2px solid #fff;
+    display: block;
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 0 0 5px;
+    overflow: hidden;
+    width: 151px;
+}
+.ffb-accordion.navi.main-navi-list .dialog-confirm {
+    background: url("../../../backend/images/icon_accept.png") no-repeat scroll center center #eee;
+    border-top: 2px solid #fff;
+    display: block;
+    float: left;
+    height: 38px;
+    position: relative;
+    width: 42px;
+    cursor: pointer;
+}
+.ffb-accordion.navi.main-navi-list .dialog-cancel {
+    background: url("../../../backend/images/icon_cancel.png") no-repeat scroll center center #eee;
+    border-top: 2px solid #fff;
+    display: block;
+    float: left;
+    height: 38px;
+    position: relative;
+    width: 42px;
+    cursor: pointer;
+}
+.ffb-accordion.navi.main-navi-list .dialog {
+    height: 40px;
+    margin-top: 40px;
+    display: 40px;
+    width: 240px;
+    background-color: #eee;
+}
+.ffb-accordion.navi.main-navi-list .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    top: -10px;
+    left: 12px;
+}
+/* .ffb-accordion.navi.main-navi-list.simple */
+.ffb-accordion.navi.main-navi-list.simple .entry-action {
+    display: none;
+}
+.ffb-accordion.navi.main-navi-list.simple .entry-name {
+    margin: 0;
+    width: auto;
+}
+.ffb-accordion.navi.main-navi-list.simple li a {
+    /*padding: 0 0 0 50px;*/
+}
+
+/* scroll */
+.ffb-scroll {
+    overflow: hidden;
+    position: relative;
+}
+.ffb-scroll .column {
+    background: #eeeeef;
+    position: absolute;
+    right: 0;
+    width: 10px;
+}
+.ffb-scroll .column .handler {
+    background: #ccc;
+    position: absolute;
+    width: 10px;
+}
+/* wrapper for data to be shown in the sec header */
+.sec-header-data-wrapper {
+    bottom: 8px;
+    position: absolute;
+    right: 0;
+}
+.sec-header-data-wrapper p {
+    color: #888888;
+    font-size: 13px;
+    font-weight: bold;
+}
+.sec-header-data-wrapper p small {
+    font-size: 11px;
+}
+.sec-top-data-wrapper {
+    float: right;
+    font-weight: bold;
+    line-height: 25px;
+    margin-right: 12px;
+    text-transform: uppercase;
+}
+/* lang-switcher */
+.lang-switcher-wrapper {
+    bottom: 8px;
+    position: absolute;
+    right: 0;
+    width: 170px;
+}
+.lang-switcher-wrapper.changed .ffbdropdown-main {
+    border-color: #95c152;
+}
+.lang-switcher-wrapper label {
+    color: #555;
+    font-weight: bold;
+    left: 0;
+    line-height: 18px;
+    /*padding: 5px 0 0;*/
+    padding: 3px 0 0 5px;
+    position: absolute;
+    top: 0;
+}
+.lang-switcher-wrapper .ffbdropdown-main.default {
+    background: transparent;
+}
+.lang-switcher-wrapper .ffbdropdown-main.default .wrap .ffbdropdown-value {
+    text-indent: 65px;
+}
+
+/* panemanager */
+.panemanager {
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    min-width: 768px;
+    position: absolute;
+    right: 0;
+    top: 132px;
+    max-width: 1280px;
+    width: 100%;
+}
+.panemanager > .panemanager-pane {
+    border-right: 1px solid #e5e5e5;
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 280px;
+}
+.panemanager > .panemanager-pane > h2 {
+    color: #666;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0 0 15px 0;
+    padding: 0 35px 0 20px;
+    position: relative;
+    text-transform: uppercase;
+}
+.panemanager > .panemanager-pane > h2 > span {
+    display: none;
+}
+.panemanager > .panemanager-pane > h2::after {
+    background: url(../../backend/images/icon_grabber.png) center 3px no-repeat;
+    bottom: 0;
+    content: "";
+    opacity: 1;
+    position: absolute;
+    right: 18px;
+    top: 0;
+    width: 15px;
+}
+.panemanager > .panemanager-pane > .panemanager-pane-content {
+    overflow: auto;
+    position: relative;
+}
+.panemanager > .panemanager-pane:first-child > .panemanager-pane-content {
+    /*padding-left: 60px;*/
+    /*margin-left: -60px;*/
+}
+.panemanager > .panemanager-pane > .panemanager-pane-content .ajax-wait {
+    background: url(../../backend/images/icon_ajax_wait.gif) no-repeat scroll center center transparent;
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+    min-height: 200px;
+    position: absolute;
+    width: 90%;
+}
+.panemanager > .panemanager-pane.panemanager-pane-closed {
+    border-right: 1px solid #e5e5e5;
+    width: 41px;
+}
+.panemanager > .panemanager-pane-closed > h2 {
+    -webkit-transform: rotate(90deg) translateX(-40px);
+       -moz-transform: rotate(90deg) translateX(-40px);
+            transform: rotate(90deg) translateX(-40px);
+    width: 1000px;
+}
+.panemanager > .panemanager-pane-closed > h2::after {
+    opacity: 0;
+}
+.panemanager > .panemanager-pane-closed > h2 > span {
+    display: initial;
+}
+.panemanager > .panemanager-pane-closed > .panemanager-pane-content {
+    display: none;
+}
+.panemanager > .panemanager-pane-closed.show > .panemanager-pane-content {
+    display: block;
+}
+
+/* panemanager main-navi-pane */
+.panemanager > .panemanager-pane.main-navi-pane > h2 {
+    padding-left: 50px;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls {
+    padding: 10px 20px 0 50px;
+    width: 170px;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .button {
+    margin: 0 0 10px 0;
+    width: 132px;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .design-select {
+    margin: 0 0 10px 0;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .design-select.default .design-select-list li a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 160px;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .form-default {
+    padding: 0;
+    width: 170px;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .form-default .row {
+    margin: 0 0 10px 0;
+    overflow: hidden;
+    padding: 0 12px 0 0;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .form-default .row input[type="text"] {
+    margin: 0;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .form-default .row input[type="submit"] {
+    border: 0 none;
+    cursor: pointer;
+    height: 25px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25px;
+}
+.panemanager > .panemanager-pane.main-navi-pane .controls .form-default .ffbdropdown-main.default .wrap .ffbdropdown-value {
+    padding: 0;
+}
+.panemanager > .panemanager-pane.main-navi-pane.panemanager-pane-closed.loaded h2 {
+    padding: 0 0 0 20px;
+}
+/*.panemanager > .panemanager-pane.main-navi-pane > .panemanager-pane-content {
+    overflow: hidden;
+}*/
+
+/* panemanager sub-navi-pane */
+.panemanager > .panemanager-pane.sub-navi-pane {
+    border: 0 none;
+    display: none;
+    overflow: hidden;
+    width: 0;
+}
+.panemanager > .panemanager-pane.sub-navi-pane > .panemanager-pane-content {
+    overflow: visible;
+}
+.panemanager > .panemanager-pane.sub-navi-pane > h2 {
+    padding-left: 30px;
+}
+.panemanager > .panemanager-pane.sub-navi-pane .button.add {
+    display: block;
+    width: auto;
+}
+.panemanager > .panemanager-pane.sub-navi-pane .controls {
+    margin: 0 20px 5px 30px;
+}
+.panemanager > .panemanager-pane.sub-navi-pane .ffb-accordion.navi.scrollable {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* panemanager panemanager-pane-main */
+.panemanager > .panemanager-pane.panemanager-pane-main {
+    border-right: none;
+}
+.panemanager > .panemanager-pane.panemanager-pane-main > h2 {
+    display: none;
+    padding: 0 0 0 20px;
+}
+.panemanager > .panemanager-pane.panemanager-pane-main > h2::after {
+    display: none;
+}
+.panemanager > .panemanager-pane.panemanager-pane-main .panemanager-pane-content {
+    height: 100%;
+    min-width: 684px;
+}
+.panemanager > .panemanager-pane.panemanager-pane-main > .panemanager-pane-content > .panemanager-pane-scrollpane {
+    height: 100%;
+    margin: 0 30px 0 20px;
+    position: relative;
+}
+
+/* panemanager panemanager-bar */
+.panemanager .panemanager-bar {
+    background: #f5f5f5;
+    min-height: 25px;
+    margin: 0 50px 30px 50px;
+    position: relative;
+}
+
+/* panemanager.with-subnavi */
+.panemanager.with-subnavi > .panemanager-pane.sub-navi-pane {
+    border-right: 1px solid #e5e5e5;
+    display: block;
+    overflow: visible;
+    width: 240px;
+}
+.panemanager.with-subnavi > .panemanager-pane.sub-navi-pane.panemanager-pane-closed {
+    border-right: 1px solid #e5e5e5;
+    width: 41px;
+}
+
+/* panemanager.two-columns */
+.panemanager.two-columns > .panemanager-pane.main-navi-pane {
+    margin: 0 0 0 50px;
+    width: 480px;
+}
+.panemanager.two-columns > .panemanager-pane.panemanager-pane-closed {
+    width: 41px;
+}
+
+/* panemanager.one-pane */
+.panemanager.one-pane {
+
+}
+.panemanager.one-pane > .panemanager-pane.panemanager-pane-main > .panemanager-pane-content > .panemanager-pane-scrollpane {
+    margin: 0 50px;
+}
+
+/* sec-header */
+.sec-header {
+    border-bottom: 1px solid #e0e0e0;
+    height: 25px;
+    margin: 0 0 25px 0;
+    padding: 65px 0 0 0;
+    position: relative;
+}
+.sec-header h2 {
+    color: #666;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 0 0 0 25px;
+    text-transform: uppercase;
+}
+.sec-header .icon-tooltip {
+    cursor: pointer;
+}
+
+/* sec-top-controls */
+.sec-top-controls {
+    min-height: 25px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.sec-top-controls.gray {
+    background: #f5f5f5;
+}
+.sec-top-controls h3 {
+    color: #666;
+    float: right;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 0 40px 0 0;
+    text-transform: uppercase;
+}
+
+/* shortcuts */
+.hide {
+    display: none !important;
+}
+.invisible {
+    visibility: hidden !important;
+}
+
+/* mainnavi-container */
+.mainnavi-container .tabs {
+    margin-left: 40px;
+}
+.mainnavi-container .scroll {
+    overflow: hidden;
+}
+.mainnavi-container .scroll-up {
+    background: url("../../../backend/images/icon_arrow_up.png") no-repeat scroll center center #fff;
+}
+.mainnavi-container .menu {
+    cursor: pointer;
+    display: block;
+    height: 12px;
+    width: 170px;
+    margin: 10px 20px 0 50px;
+}
+.mainnavi-container span.hr {
+    border-bottom: 1px solid #e0e0e0;
+    width: 170px;
+    display: block;
+    margin: 10px 10px 10px 50px;
+}
+.mainnavi-container .scroll-down {
+    background: url("../../../backend/images/icon_arrow_down.png") no-repeat scroll center center #fff;
+}
+
+.scroll-container .scroll {
+    overflow: hidden;
+}
+.scroll-container .scroll-up {
+    background: url("../../../backend/images/icon_arrow_up.png") no-repeat scroll center center #fff;
+}
+.scroll-container .menu {
+    display: block;
+    height: 12px;
+    width: 170px;
+    margin: 10px 20px 0 50px;
+}
+.scroll-container span.hr {
+    border-bottom: 1px solid #e0e0e0;
+    display: block;
+    margin: 10px 12px 10px 30px;
+    width: auto;
+}
+.scroll-container .scroll-down {
+    background: url("../../../backend/images/icon_arrow_down.png") no-repeat scroll center center #fff;
+}
+.scroll-container .pane-navi-link-cnt:last-child {
+    padding-bottom: 40px;
+}
+
+/* tabs */
+.tabs {
+    border-bottom: 1px solid #e5e5e5;
+    margin: 0 0 35px 0;
+    overflow: hidden;
+    padding: 0 15px 0 0;
+}
+.tabs .tab {
+    float: left;
+}
+.tabs .tab + .tab {
+    margin: 0 0 0 5px;
+}
+.tabs .tab span {
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    color: #999;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 30px;
+    padding: 0 10px;
+}
+.tabs .tab.active span,
+.tabs .tab span:hover {
+    background: #eee;
+}
+.tab-content.hidden {
+    display: none;
+}
+
+/* tooltip */
+.icon-tooltip {
+    background: url("../../../backend/images/icon_info_red.png") no-repeat scroll center center transparent;
+    display: inline-block;
+    height: 17px;
+    position: relative;
+    width: 17px;
+}
+/* tooltip */
+.tooltip {
+    background: #f9cdd0;
+    border: 1px solid #bf002b;
+    color: #bf002b;
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    margin: 20px 0 0 0;
+    max-width: 400px;
+    min-width: 250px;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+    z-index: 100;
+}
+.form-default .row.static-text span.tooltip {
+    font-weight: normal;
+}
+.form-default .row.static-text.no-label .tooltip,
+.form-default .row.static-text .tooltip {
+    display: block;
+    color: #bf002b;
+    left: auto;
+    margin: 20px 0 0 0;
+    top: auto;
+    padding: 10px;
+}
+
+/* suggested-size */
+.suggested-size {
+    color: #999;
+}
+.suggested-size small {
+    margin-left: -12px;
+}
+
+/* ffb-calendar has to be smaller inside main-navi-pane */
+.main-navi-pane .ffb-calendar.popup.red-white {
+    width: 190px;
+}
+.main-navi-pane .ffb-calendar.popup.red-white .ffb-calendar-head {
+    width: 180px;
+}
+.main-navi-pane .ffb-calendar.popup.red-white .ffb-calendar-date {
+    width: 100px;
+}
+
+
+.page-404 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0 0 50px 0;
+    padding: 134px 0 0 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.page-404 .inner .info {
+    color: #666;
+    margin: 0 0 25px 0;
+}
+.page-404 .inner .info p {
+    display: inline-block;
+    font-size: 12px;
+    width: 219px;
+}
+.page-404 .inner .error-code {
+    color: #CC1E18;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 1;
+}
+.page-404 .inner .error-code span {
+    display: block;
+    font-size: 134px;
+    font-weight: 500;
+    line-height: 100px;
+}
+.page-404 .inner a {
+    background: #CC1E18;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    margin: 16px 0 0 0;
+    padding: 8px 4px;
+    position: relative;
+    text-decoration: none;
+}
+.page-404 .inner a > span {
+    background: #CC1E18;
+    height: 16px;
+    left: 50%;
+    margin: 0 0 0 -12px;
+    position: absolute;
+    top: -16px;
+    width: 26px;
+}
+.page-404 .inner a > span:before {
+    border-color: #fff transparent transparent transparent;
+    border-style: solid;
+    border-width: 7px 6px 0 6px;
+    content: '';
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0 0 0 -6px;
+    position: absolute;
+    top: 5px;
+    width: 0;
+}

@@ -1,0 +1,25 @@
+/* .attribute-value-log */
+.ffb-accordion.log .attribute-value-log.table-default tr {
+
+}
+.ffb-accordion.log .attribute-value-log.table-default tr th {
+    padding: 10px 0 0 10px;
+}
+.ffb-accordion.log .attribute-value-log.table-default [data-tooltip] {
+    cursor: pointer;
+}
+.ffb-accordion.log .attribute-value-preview .ok.button {
+    display: none;
+}
+.ffb-accordion.log .log-filter {
+    width: 200px;
+    float: right;
+    margin-top: -28px;
+}
+
+.ffb-accordion.log .more.button {
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    background: url(../../images/backend/arrow_black.png) no-repeat center center transparent;
+}
