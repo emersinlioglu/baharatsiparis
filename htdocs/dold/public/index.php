@@ -66,8 +66,30 @@ switch (APPLICATION_ENV) {
 }
 
 //Setup autoloading
-//require 'init_autoloader.php';
-require __DIR__ . '/../init_autoloader.php';
+error_log('===========');
+if (file_exists('init_autoloader.php')) {
+    error_log('yes : init_autoloader.php');
+    require 'init_autoloader.php';
+} else {
+    error_log('no : init_autoloader.php');
+}
+
+if (file_exists('../init_autoloader.php')) {
+    error_log('yes : ../init_autoloader.php');
+    require '../init_autoloader.php';
+} else {
+    error_log('no : ../init_autoloader.php');
+}
+
+
+if (file_exists(__DIR__ . '/../init_autoloader.php')) {
+    error_log('yes : 3');
+    require __DIR__ . '/../init_autoloader.php';
+} else {
+    error_log('no : 3');
+}
+
+
 
 // Run the application! plese disable modules in application.ini files, not here
 $whiteModulesList = array(
