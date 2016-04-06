@@ -66,28 +66,27 @@ switch (APPLICATION_ENV) {
 }
 
 //Setup autoloading
-error_log('===========');
-if (file_exists('init_autoloader.php')) {
-    error_log('yes : init_autoloader.php');
-    require 'init_autoloader.php';
-} else {
-    error_log('no : init_autoloader.php');
-}
+//error_log('===========');
+//if (file_exists('init_autoloader.php')) {
+//    error_log('yes : init_autoloader.php');
+//    require 'init_autoloader.php';
+//} else {
+//    error_log('no : init_autoloader.php');
+//}
+//
+//if (file_exists('../init_autoloader.php')) {
+//    error_log('yes : ../init_autoloader.php');
+//    require '../init_autoloader.php';
+//} else {
+//    error_log('no : ../init_autoloader.php');
+//}
 
-if (file_exists('../init_autoloader.php')) {
-    error_log('yes : ../init_autoloader.php');
-    require '../init_autoloader.php';
-} else {
-    error_log('no : ../init_autoloader.php');
-}
-
-
-if (file_exists(__DIR__ . '/../init_autoloader.php')) {
-    error_log('yes : 3');
-    require __DIR__ . '/../init_autoloader.php';
-} else {
-    error_log('no : 3');
-}
+require __DIR__ . '/../init_autoloader.php';
+//if (file_exists(__DIR__ . '/../init_autoloader.php')) {
+//    error_log('yes : 3');
+//} else {
+//    error_log('no : 3');
+//}
 
 
 
