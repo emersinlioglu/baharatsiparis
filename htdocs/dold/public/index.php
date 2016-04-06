@@ -66,7 +66,8 @@ switch (APPLICATION_ENV) {
 }
 
 //Setup autoloading
-require 'init_autoloader.php';
+//require 'init_autoloader.php';
+require __DIR__ . '/../init_autoloader.php';
 
 // Run the application! plese disable modules in application.ini files, not here
 $whiteModulesList = array(
