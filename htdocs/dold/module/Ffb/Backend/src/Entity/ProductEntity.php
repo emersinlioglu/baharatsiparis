@@ -66,7 +66,7 @@ class ProductEntity extends Entity\AbstractTranslatableEntity {
      * @var bool
      * @ORM\Column(name="is_system", type="boolean", options={"default": false})
      */
-    protected $isSystem = 0;
+    protected $isSystem = false;
 
 
     /**

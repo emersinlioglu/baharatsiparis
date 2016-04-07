@@ -162,8 +162,9 @@ class ProductForm extends AbstractBackendForm {
             ))
             ->add(array(
                 'name' => 'isSystem',
+                'allow_empty' => true,
                 'validators' => array(
-                    $this->_validators['not_empty'],
+//                    $this->_validators['not_empty'],
                     $this->_validators['int']
                 )
             ))

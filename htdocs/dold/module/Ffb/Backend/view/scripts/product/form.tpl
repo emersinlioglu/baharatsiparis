@@ -50,7 +50,7 @@
                 </div>
             {/foreach}
 
-            {include file='../partials/form/input_hidden.tpl' fieldName='isSystem' class="is-system"}
+            {*{include file='../partials/form/input_hidden.tpl' fieldName='isSystem' class="is-system"}*}
             {include file='../partials/form/input_hidden.tpl' fieldName='parent' class="parent"}
             {include file='../partials/form/input_text.tpl'   fieldName='price'}
             {include file='../partials/form/input_text.tpl'   fieldName='imageUrl'}
