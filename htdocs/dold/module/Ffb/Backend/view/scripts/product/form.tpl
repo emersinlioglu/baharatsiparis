@@ -54,11 +54,21 @@
             {include file='../partials/form/input_hidden.tpl' fieldName='parent' class="parent"}
             {include file='../partials/form/input_text.tpl'   fieldName='price'}
             {include file='../partials/form/input_text.tpl'   fieldName='imageUrl'}
+            {*<div class="row" style="width: 150px; height: 200px; background: url({$form->get('imageUrl')->getValue()}) left top;">*}
+            {*</div>*}
+
             {include file='../partials/form/select.tpl'       fieldName='online' class="online"}
             {include file='../partials/form/input_hidden.tpl' fieldName='isRoot'}
 
             {include file='../partials/form/input_submit.tpl'   fieldName='send'}
 
+            {if $form->get('imageUrl')->getValue()}
+            <div class="row" style="height: 150px;">
+                <a href="{$form->get('imageUrl')->getValue()}" target="_blank">
+                    <img src="{$form->get('imageUrl')->getValue()}" style="height: 100%;"/>
+                </a>
+            </div>
+            {/if}
         </div>
 
             {*<div class="column full details">*}
