@@ -32,7 +32,8 @@ body.dold header .top {
     height: 41px;
 }
 body.dold header .top h1 {
-    background: transparent url("../../images/backend/logo.png") no-repeat scroll left top / auto 35px;
+    /*background: transparent url("../../images/backend/logo.png") no-repeat scroll left top / auto 35px;*/
+    background: none;
     height: 40px;
     position: relative;
     text-indent: -9999px;
