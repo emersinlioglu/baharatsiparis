@@ -87,6 +87,10 @@ class ProductController extends AbstractBackendController {
                     'controller' => 'product',
                     'action'     => 'index'
                 )),
+                'urlCategorySort'        => $this->url()->fromRoute('home/default', array(
+                    'controller' => 'category',
+                    'action'     => 'sort'
+                )),
                 'uriAddEntity'      => $uriAddEntity,
                 'withSubnavi'       => true,
                 'paneFirstTitle'    => '&nbsp;',
@@ -166,6 +170,22 @@ class ProductController extends AbstractBackendController {
         if (!is_null($data)) {
             $form->setData($data);
         }
+
+        $actions = array(
+            array(
+                'label' => 'Sortieren',
+                'value' => 'no-value',
+                'attributes' => array(
+                    'data-sort-url' => $this->url()->fromRoute('home/default', array(
+                        'controller' => 'product',
+                        'action'     => 'sort',
+                        'param'      => 'category',
+                        'value'      => $categoryId
+                    ))
+                )
+            )
+        );
+        $form->get('isSystem')->setValueOptions($actions);
 
         return $form->prepare();
     }

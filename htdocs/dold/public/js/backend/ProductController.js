@@ -185,6 +185,18 @@ var ProductController = new function() {
             }
         });
 
+        // init products dropdown -- actions
+        if (dropdowns.hasOwnProperty('isSystem')) {
+            dropdowns['isSystem'].opt.onSelect = function(element, index, value) {
+
+                var opt = $(element).find('option[value="' + value + '"]');
+                var link = $('<a>').attr('href' , opt.attr('data-sort-url'));
+                pm.getMainPaneContent(link);
+
+                return false;
+            };
+        }
+
         // init form submit
         form.on('submit', function(e) {
 

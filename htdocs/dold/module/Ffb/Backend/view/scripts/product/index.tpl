@@ -36,7 +36,7 @@
 
             <div class="row select actions">
                 <select name="productGroupActions" class="product-groups-actions">
-                    <option value="1" data-href="category/sort" data-pane-title="">Soriteren</option>
+                    <option value="1" data-href="{$urlCategorySort}" data-pane-title="">Soriteren</option>
                 </select>
             </div>
         </form>

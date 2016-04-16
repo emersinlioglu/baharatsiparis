@@ -52,7 +52,7 @@ class CategoryForm extends AbstractBackendForm {
                     'property'       => 'id',
                     'label'          => 'LBL_CATEGORY_PARENT',
                     'empty_option'   => 'OPT_CATEGORY_PARENT_EMPTY'
-                ),
+                )
             ))
 //            ->add(array(
 //                'name' => 'template',

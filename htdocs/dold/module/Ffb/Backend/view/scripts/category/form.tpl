@@ -7,7 +7,9 @@
     <div class="columns">
 
         <div class="column full centered">
-            {include file='../partials/form/select.tpl'         fieldName='parent' form=$categoryForm}
+            <div class="hide">
+                {include file='../partials/form/select.tpl'         fieldName='parent' form=$categoryForm}
+            </div>
 {*            {include file='../partials/form/select.tpl'         fieldName='template'}*}
             {foreach item=trans from=$categoryForm->get('translations')->getFieldsets()}
 

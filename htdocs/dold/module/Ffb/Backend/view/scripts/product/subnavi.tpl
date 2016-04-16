@@ -12,12 +12,11 @@
             {/if}
         </div>
 
-        {include file='../partials/form/select.tpl'
-            fieldName='isSystem' form=$formSearchProduct class="system"}
-        {include file='../partials/form/input_text.tpl'
-            fieldName='search'   form=$formSearchProduct}
-        {include file='../partials/form/input_submit.tpl'
-            fieldName='send'     form=$formSearchProduct}
+        {if $showProductLink}
+            {include file='../partials/form/select.tpl' fieldName='isSystem' form=$formSearchProduct class="system"}
+        {/if}
+        {include file='../partials/form/input_text.tpl' fieldName='search' form=$formSearchProduct}
+        {include file='../partials/form/input_submit.tpl' fieldName='send' form=$formSearchProduct}
 
     </div>
 </div>

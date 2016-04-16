@@ -1,7 +1,7 @@
 <!-- category/sort.tpl -->
 
 <!-- form-sort-categories -->
-<form action="category/sort" method="post" class="form-default form-sort-entities form-sort-categories">
+<form action="{$formAction}" method="post" class="form-default form-sort-entities form-sort-categories">
 
     <h2>{$this->translate('TTL_SORT_CATEGORIES')}</h2>
 
@@ -9,40 +9,46 @@
         <input type="submit" name="send" class="button gray" value="{$this->translate('BTN_SAVE')}">
     </div>
 
+    {foreach item="categoryLangSortTree" from=$categorySortTree key='iso'}
+        <p>
+            {$iso}
+        </p>
     <ul class="sortable category-list">
-        {foreach item="entry" from=$categorySortTree}
-            <li id="category_{$entry.id}" class="first-level{if $entry.hasSubitems} hasItems{/if}">
+        {foreach item="entry" from=$categoryLangSortTree}
+            <li id="category_{$entry.id}" class="first-level hasItems">
 
-                {$entry.hiddenInput}
-                {$entry.title}
+                {*{$entry.hiddenInput}*}
+                {$entry.name}
+                <input name="category[{$entry.id}]" value="{$entry.sort}" type="hidden">
 
-                {if $entry.hasSubitems}
-                    <ul class="sortable">
-                        {foreach item="subentry" from=$entry.subitems}
-                            <li id="category_{$subentry.id}" class="second-level{if $subentry.hasSubitems} hasItems{/if}">
+                {*{if $entry.hasSubitems}*}
+                    {*<ul class="sortable">*}
+                        {*{foreach item="subentry" from=$entry.subitems}*}
+                            {*<li id="category_{$subentry.id}" class="second-level{if $subentry.hasSubitems} hasItems{/if}">*}
 
-                                {$subentry.hiddenInput}
-                                {$subentry.title}
+                                {*{$subentry.hiddenInput}*}
+                                {*{$subentry.title}*}
 
-                                {if $subentry.hasSubitems}
-                                    <ul class="sortable">
-                                        {foreach from=$subentry.subitems item=subsubentry}
-                                            <li id="category_{$subsubentry.id}" class="third-level">
+                                {*{if $subentry.hasSubitems}*}
+                                    {*<ul class="sortable">*}
+                                        {*{foreach from=$subentry.subitems item=subsubentry}*}
+                                            {*<li id="category_{$subsubentry.id}" class="third-level">*}
 
-                                                {$subsubentry.hiddenInput}
-                                                {$subsubentry.title}
+                                                {*{$subsubentry.hiddenInput}*}
+                                                {*{$subsubentry.title}*}
 
-                                            </li>
-                                        {/foreach}
-                                    </ul>
-                                {/if}
-                            </li>
-                        {/foreach}
-                    </ul>
-                {/if}
+                                            {*</li>*}
+                                        {*{/foreach}*}
+                                    {*</ul>*}
+                                {*{/if}*}
+                            {*</li>*}
+                        {*{/foreach}*}
+                    {*</ul>*}
+                {*{/if}*}
             </li>
         {/foreach}
     </ul>
+    {/foreach}
 
 </form>
 <!-- /form-sort-categories -->

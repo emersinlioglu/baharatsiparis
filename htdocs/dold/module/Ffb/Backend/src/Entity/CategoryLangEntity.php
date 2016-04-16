@@ -46,6 +46,12 @@ class CategoryLangEntity extends AbstractTranslationEntity {
     protected $translationTarget;
 
     /**
+     * @var int
+     * @ORM\Column(name="sort", type="integer", nullable=false, options={"unsigned":true})
+     */
+    protected $sort;
+
+    /**
      * @return int
      */
     public function getId() {
@@ -99,6 +105,20 @@ class CategoryLangEntity extends AbstractTranslationEntity {
      */
     function setDescription($description) {
         $this->description = $description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSort() {
+        return $this->sort;
+    }
+
+    /**
+     * @param int $sort
+     */
+    public function setSort($sort) {
+        $this->sort = $sort;
     }
 
 }

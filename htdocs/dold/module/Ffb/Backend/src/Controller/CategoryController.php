@@ -402,8 +402,12 @@ class CategoryController extends AbstractBackendController {
                 return $view;
             }
 
+            $masterLangCode = $this->getMasterLang();
+
             // get model(s)
+            $langModel = new Model\LangModel($this->getServiceLocator(), $this->logger);
             $categoryModel = new Model\CategoryModel($this->getServiceLocator(), $this->logger);
+            $categoryLangModel = new Model\CategoryLangModel($this->getServiceLocator(), $this->logger);
 
             // check post
             if ($this->getRequest()->isPost()) {
@@ -411,13 +415,15 @@ class CategoryController extends AbstractBackendController {
                 // get data
                 $data = $this->getRequest()->getPost();
 
+                error_log('=================');
+                error_log(print_r($data ,1));
+
                 foreach ($data->get('category') as $categoryId => $sort) {
 
-                    $category = $categoryModel->findById($categoryId);
-                    $category->setSort($sort);
-                    $categoryModel->update($category);
+                    $categoryLang = $categoryLangModel->findById($categoryId);
+                    $categoryLang->setSort($sort);
+                    $categoryLangModel->update($categoryLang);
                 }
-
 
                 $categories = $categoryModel->getFirstLevelProductCategories();
                 if (count($categories) > 0) {
@@ -431,8 +437,30 @@ class CategoryController extends AbstractBackendController {
                 }
 
             } else {
-                // GET Request
-                $categorySortTree = $categoryModel->getCategorySortTree();
+                $view->setVariable('formAction', $this->url()->fromRoute('home/default', array(
+                    'controller' => 'category',
+                    'action' => 'sort'
+                )));
+//                // GET Request
+//                $categories = $categoryModel->getFirstLevelProductCategories();
+//                //$categorySortTree = $categoryModel->getCategorySortTree();
+                $categorySortTree = array();
+
+//                $activeLanguages = $langModel->getActiveLanguages();
+//                /* @var $category \Ffb\Backend\Entity\CategoryEntity */
+//                foreach ($categories as $category) {
+//                    foreach($activeLanguages as $lang) {
+//                        $catLangsData = $categoryLangModel->getSortedByCategory($category, $lang);
+//                        $categorySortTree[$lang->getId()][] = $catLangsData;
+//                    }
+//                }
+
+                $catLangsData = $categoryLangModel->getSortedByCategory();
+                foreach ($catLangsData as $data) {
+                    $categorySortTree[$data['iso']][] = $data;
+                }
+//error_log(print_r($categorySortTree ,1));
+
                 $view->setVariable('categorySortTree', $categorySortTree);
             }
 
