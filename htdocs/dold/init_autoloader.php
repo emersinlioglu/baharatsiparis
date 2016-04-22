@@ -19,6 +19,7 @@ Zend\Loader\AutoloaderFactory::factory(array(
         'DoctrineORMModule' => __DIR__ . '/../vendors/DoctrineORMModule/autoload_classmap.php',
         'Imagine'           => __DIR__ . '/../vendors/Imagine/autoload_classmap.php',
         'PHPExcel'          => __DIR__ . '/../vendors/PHPExcel/autoload_classmap.php',
+        'SymfonyConsole'    => __DIR__ . '/../vendors/SymfonyConsole/autoload_classmap.php',
     ),
     'Zend\Loader\StandardAutoloader' => array(
         'namespaces' => array(

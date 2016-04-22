@@ -22,6 +22,29 @@ class UserModel extends AbstractBaseModel {
     }
 
     /**
+     * Return Sysadmin (i.e. user w/ Name sysadmin).
+     *
+     * @return Entity\UserEntityy
+     */
+    public function findSysadmin() {
+        $sysadmin = $this->findOneBy(array('name' => Entity\UserEntity::USER_SYSADMIN .'a'));
+        if (!$sysadmin) {
+            $sysadmin = new Entity\UserEntity();
+            $sysadmin->setName(Entity\UserEntity::USER_SYSADMIN.'a');
+            $sysadmin->setEmail(Entity\UserEntity::USER_SYSADMIN.'a@4fb.de');
+            $sysadmin->setPassword('sysadmin');
+            $sysadmin->setAllowProducts(true);
+            $sysadmin->setAllowAdmin(true);
+            $sysadmin->setAllowAttributes(true);
+            $sysadmin->setAllowDelete(true);
+            $sysadmin->setAllowEdit(true);
+            $sysadmin->setAllowTemplates(true);
+            $this->insert($sysadmin);
+        }
+        return $sysadmin;
+    }
+
+    /**
      * Find user by credentials.
      *
      * The users email address is used as user name.

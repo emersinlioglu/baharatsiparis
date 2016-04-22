@@ -92,16 +92,27 @@ require __DIR__ . '/../init_autoloader.php';
 
 // Run the application! plese disable modules in application.ini files, not here
 $whiteModulesList = array(
-    'DoctrineModule',
-    'DoctrineORMModule',
-    'ZendDeveloperTools'
+    'DoctrineModule', 'DoctrineORMModule', 'ZendDeveloperTools'
 );
 
-if (substr($_SERVER['REQUEST_URI'], 0, '4') === '/api') {
-    $whiteModulesList[] = 'Ffb\Api';
-} else {
-    $whiteModulesList[] = 'Ffb\Backend';
-    $whiteModulesList[] = 'SmartyModule';
+if (isset($_SERVER['REQUEST_URI'])) {
+
+    if (substr($_SERVER['REQUEST_URI'], 0, '4') === '/api') {
+        $whiteModulesList[] = 'Ffb\Api';
+    } else {
+        $whiteModulesList[] = 'Ffb\Backend';
+        $whiteModulesList[] = 'SmartyModule';
+    }
+
+} else if (isset($_SERVER['argv'], $_SERVER['argv'][1])) {
+    $whiteModulesList[] = 'SymfonyConsole';
+    switch ($_SERVER['argv'][1]) {
+        case 'importall':
+            $whiteModulesList[] = 'Ffb\Backend';
+            break;
+        default:
+            break;
+    }
 }
 
 Zend\Mvc\Application::init(

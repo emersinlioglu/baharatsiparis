@@ -68,12 +68,17 @@ class ProductEntity extends Entity\AbstractTranslatableEntity {
      */
     protected $isSystem = false;
 
-
     /**
      * @var string
      * @ORM\Column(name="image_url", type="string", options={"default":256})
      */
     protected $imageUrl;
+
+    /**
+     * @var string
+     * @ORM\Column(name="amount", type="string", options={"default":16})
+     */
+    protected $amount;
 
     /**
      * @var ProductEntity
@@ -195,6 +200,22 @@ class ProductEntity extends Entity\AbstractTranslatableEntity {
      */
     public function setPrice($price) {
         $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param string $amount
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
     }
 
     /**

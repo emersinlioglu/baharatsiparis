@@ -24,6 +24,12 @@ class UserEntity extends \Ffb\Common\Entity\AbstractBaseEntity {
     const USER_STATE_NOT_LOCKED = 0;
 
     /**
+     *
+     * @var string
+     */
+    const USER_SYSADMIN = 'sysadmin';
+
+    /**
      * id INT UNSIGNED NOT NULL
      *
      * @var int

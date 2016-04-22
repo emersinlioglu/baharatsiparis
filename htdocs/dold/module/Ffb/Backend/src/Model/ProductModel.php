@@ -38,6 +38,56 @@ class ProductModel extends AbstractBaseModel {
     }
 
     /**
+     * Builds product
+     *
+     * @param array $data
+     * @return Entity\ProductEntity
+     */
+    public function build(array $data) {
+
+        $langModel = new LangModel($this->_sl);
+
+        $product = new Entity\ProductEntity();
+        $translations = new Collections\ArrayCollection();
+        $productCategories = new Collections\ArrayCollection();
+
+        foreach ($data as $key => $value) {
+            switch($key){
+                case 'translations':
+                    foreach ($value as $langIso => $productLangData) {
+                        $lang = $langModel->findOneBy(array(
+                            'iso' => $langIso
+                        ));
+                        $productLang = new Entity\ProductLangEntity();
+                        $productLang->setLang($lang);
+                        $productLang->setName($productLangData['name']);
+                        $translations->add($productLang);
+                    }
+                    break;
+                case 'parent':
+                    $product->setParent($value);
+                    break;
+                case 'price':
+                    $product->setPrice((float)$value);
+                    break;
+                case 'categories':
+                    foreach ($value as $key => $category) {
+                        $productCategory = new Entity\ProductCategoryEntity();
+                        $productCategory->setProduct($product);
+                        $productCategory->setCategory($category);
+                        $productCategories->add($productCategory);
+                    }
+                    break;
+            }
+        }
+
+        $product->addTranslations($translations);
+        $product->addProductCategories($productCategories);
+
+        return $product;
+    }
+
+    /**
      * Creates default product for given category
      *
      * @param Entity\CategoryEntity $category

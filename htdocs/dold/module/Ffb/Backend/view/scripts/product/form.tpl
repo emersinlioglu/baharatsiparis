@@ -52,6 +52,7 @@
 
             {*{include file='../partials/form/input_hidden.tpl' fieldName='isSystem' class="is-system"}*}
             {include file='../partials/form/input_hidden.tpl' fieldName='parent' class="parent"}
+            {include file='../partials/form/input_text.tpl'   fieldName='amount'}
             {include file='../partials/form/input_text.tpl'   fieldName='price'}
             {include file='../partials/form/input_text.tpl'   fieldName='imageUrl'}
             {*<div class="row" style="width: 150px; height: 200px; background: url({$form->get('imageUrl')->getValue()}) left top;">*}

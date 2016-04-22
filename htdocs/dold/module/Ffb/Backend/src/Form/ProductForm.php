@@ -59,6 +59,13 @@ class ProductForm extends AbstractBackendForm {
                 )
             ))
             ->add(array(
+                'name' => 'amount',
+                'type' => 'Text',
+                'options' => array(
+                    'label' => 'LBL_PRODUCT_AMOUNT'
+                )
+            ))
+            ->add(array(
                 'name' => 'online',
                 'type' => 'Select',
                 'options' => array(

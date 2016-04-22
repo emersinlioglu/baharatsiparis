@@ -8,6 +8,8 @@ use Ffb\Backend\Entity;
 use Ffb\Common\I18n\Translator\Translator;
 use Zend\ServiceManager;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @author erdal.mersinlioglu
  */
@@ -24,6 +26,55 @@ class CategoryModel extends AbstractBaseModel {
             Entity\UserEntity $identity = null) {
         $this->_entityClass = 'Ffb\Backend\Entity\CategoryEntity';
         parent::__construct($sl, $logger, $identity);
+    }
+
+    /**
+     * Build an category
+     *
+     *   $data = array(
+     *       'translations' => array(
+     *          'de' => $nameDe,
+     *          'en' => $nameEn,
+     *       )
+     *   );
+     *
+     * @param array $data
+     * @return Entity\CategoryEntity
+     */
+    public function build(array $data) {
+
+        // entity
+        $category = new Entity\CategoryEntity();
+
+        if (isset($data['translations'])) {
+
+            // model(s)
+            $langModel = new LangModel($this->_sl);
+
+            // create tranlsations
+            $translations = new ArrayCollection();
+            foreach ($data['translations'] as $langCode => $translationData) {
+
+                // lang
+                $lang = $langModel->findOneBy(array('iso' => strtolower($langCode)));
+                if (!$lang) {
+                    continue;
+                }
+
+                // categoryLang
+                $categoryLang = new Entity\CategoryLangEntity();
+                $categoryLang->setName($translationData['name']);
+                $categoryLang->setLang($lang);
+
+                $translations->add($categoryLang);
+            }
+
+            // add translations
+            $category->addTranslations($translations);
+        }
+
+        return $category;
+
     }
 
     /**
