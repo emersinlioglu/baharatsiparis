@@ -2,6 +2,7 @@
 return array(
 
     //CUSTOM
+    'LBL_PRODUCT_AMOUNT' => 'Menge',
     'LBL_PRODUCT_PRICE' => 'Preis',
     'LBL_PRODUCT_IMAGE_URL' => 'Bild-Url',
 

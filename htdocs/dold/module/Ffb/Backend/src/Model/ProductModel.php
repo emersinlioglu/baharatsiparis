@@ -70,6 +70,9 @@ class ProductModel extends AbstractBaseModel {
                 case 'price':
                     $product->setPrice((float)$value);
                     break;
+                case 'amount':
+                    $product->setAmount($value);
+                    break;
                 case 'categories':
                     foreach ($value as $key => $category) {
                         $productCategory = new Entity\ProductCategoryEntity();

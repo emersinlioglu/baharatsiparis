@@ -97,9 +97,14 @@ class ConsoleController extends AbstractConsoleController {
             $em = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 
             // clear tables
+            /* @var $em \Doctrine\ORM\EntityManager */
             $qb = $em->getConnection()->createQueryBuilder();
             $qb->delete('product')->execute();
             $qb->delete('category')->execute();
+            $em->getConnection()->exec('ALTER TABLE product AUTO_INCREMENT = 1');
+            $em->getConnection()->exec('ALTER TABLE product_lang AUTO_INCREMENT = 1');
+            $em->getConnection()->exec('ALTER TABLE category AUTO_INCREMENT = 1');
+            $em->getConnection()->exec('ALTER TABLE category_lang AUTO_INCREMENT = 1');
 
 //            $qb->delete('attribute_group')->execute();
 //            $qb->delete('attribute')->execute();
@@ -182,6 +187,8 @@ class ConsoleController extends AbstractConsoleController {
             $nameTr          = $row[2];
             $amount          = $row[3];
             $price           = $row[4];
+
+            $price = str_replace(',', '.' , $price);
 
             if ($isCategory) {
 
