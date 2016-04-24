@@ -49,6 +49,7 @@ header .navi .main-menu li a {
 
 /* language specific content */
 .panemanager .panemanager-pane-content.lang-de .tr:not(.lang-de),
+.panemanager .panemanager-pane-content.lang-tr .tr:not(.lang-tr),
 .panemanager .panemanager-pane-content.lang-en .tr:not(.lang-en),
 .panemanager .panemanager-pane-content.lang-fr .tr:not(.lang-fr),
 .panemanager .panemanager-pane-content.lang-es .tr:not(.lang-es),

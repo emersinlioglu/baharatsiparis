@@ -183,8 +183,8 @@ class ConsoleController extends AbstractConsoleController {
 
             // fields
             $isCategory      = strlen($row[0]) > 0;
-            $nameDe          = $row[1];
-            $nameTr          = $row[2];
+            $nameTr          = $row[1];
+            $nameDe          = $row[2];
             $amount          = $row[3];
             $price           = $row[4];
 
