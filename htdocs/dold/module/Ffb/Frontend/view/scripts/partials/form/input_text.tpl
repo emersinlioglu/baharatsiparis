@@ -1,5 +1,5 @@
 <!-- partials/form/input_text.tpl -->
-<div class="row text{if $showParent} hide{/if}">
+<div class="form-group row text{if $showParent} hide{/if}">
 {if $form}
     {assign var=field value=$form->get($fieldName)}
     {if $field->getLabel() neq NULL}{$this->formLabel($field)}{/if}

@@ -17,7 +17,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * $this->info('foobar');
  *
  * @author murat.purc
- * @author marcus.gnass
+ * @author
  */
 abstract class AbstractService extends \Ffb\Common\Service\AbstractService {
 

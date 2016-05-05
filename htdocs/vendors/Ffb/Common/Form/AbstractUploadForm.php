@@ -5,7 +5,7 @@ namespace Ffb\Common\Form;
 use Zend\InputFilter;
 
 /**
- * @author marcus.gnass
+ * @author
  */
 abstract class AbstractUploadForm extends AbstractForm {
 

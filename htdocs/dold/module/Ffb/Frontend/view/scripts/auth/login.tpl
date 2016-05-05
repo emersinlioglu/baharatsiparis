@@ -1,34 +1,23 @@
 <!-- auth/login.tpl -->
-{$script=$this->headScript()->appendFile('backend/js/controller/AuthController.js')}
+{$script=$this->headScript()->appendFile('js/frontend/AuthController.js')}
 
-<!-- container -->
-<div class="container">
+<!-- form-login -->
+{$this->form()->openTag($form)}
 
-    <!-- sec-header -->
-    <div class="sec-header">
+    <div class="row">
 
-        <h2>{$this->translate('TTL_LOGIN_TITLE')}</h2>
-
-    </div>
-    <!-- /sec-header -->
-
-    <!-- form-login -->
-    {$this->form()->openTag($form)}
-
-        <div class="columns">
-
-            <div class="column left">
-                {include file='../partials/form/input_text.tpl' fieldName='email'}
-                {include file='../partials/form/input_password.tpl' fieldName='password'}
-                {include file='../partials/form/input_submit.tpl' fieldName='login'}
-            </div>
-
+        <div class="col-md-4 col-md-offset-4">
+            <h2>{$this->translate('TTL_LOGIN_TITLE')}</h2>
+            <br />
+            <br />
+            {include file='../partials/form/input_text.tpl' fieldName='email'}
+            {include file='../partials/form/input_password.tpl' fieldName='password'}
+            {include file='../partials/form/input_submit.tpl' fieldName='login'}
         </div>
-    {$this->form()->closeTag()}
-    <!-- /form-login -->
+    </div>
 
-</div>
-<!-- /container -->
+{$this->form()->closeTag()}
+<!-- /form-login -->
 
 <script>
     AuthController.initLogin();

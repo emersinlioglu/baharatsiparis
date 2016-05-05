@@ -9,7 +9,7 @@ use Zend\Form\ElementInterface;
 /**
  * Helper for displaying localized & formatted dates in a formfield.
  *
- * @author marcus.gnass
+ * @author
  */
 class FormDateFormatted extends \Zend\Form\View\Helper\FormText {
 

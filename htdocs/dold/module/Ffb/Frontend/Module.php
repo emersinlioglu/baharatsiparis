@@ -106,7 +106,7 @@ class Module extends CommonModule {
      * previously instantiated object. See PHP Constructor Best Practices and
      * the Prototype Pattern for more details.
      *
-     * @author marcus.gnass
+     * @author
      * @return multitype:multitype:NULL
      *         |\User\UserTable|\Zend\Db\TableGateway\TableGateway
      * @see http://framework.zend.com/manual/2.1/en/user-guide/database-and-models.html

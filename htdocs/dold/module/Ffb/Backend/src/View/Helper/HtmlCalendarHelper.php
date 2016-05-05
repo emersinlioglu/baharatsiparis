@@ -8,7 +8,7 @@ use Zend\Form\View\Helper;
 
 /**
  *
- * @author marcus.gnass
+ * @author
  */
 class HtmlCalendarHelper extends Helper\AbstractHelper {
 

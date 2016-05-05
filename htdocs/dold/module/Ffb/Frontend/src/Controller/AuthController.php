@@ -14,7 +14,7 @@ use Zend\Json\Json;
 /**
  * @author erdal.mersinlioglu
  */
-class AuthController extends AbstractBackendController {
+class AuthController extends AbstractFrontendController {
 
     /**
      * Prepare controller

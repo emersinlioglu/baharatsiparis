@@ -17,7 +17,7 @@ use Zend\Session\Container;
  * $auth = new \Zend\Authentication\AuthenticationService();
  * if ($auth->hasIdentity()) $identity = $auth->getIdentity();
  *
- * @author marcus.gnass
+ * @author
  */
 class BackendAdapter implements ZendAuthentication\Adapter\AdapterInterface {
 

@@ -7,7 +7,7 @@ use Ffb\Backend\Entity;
 use Zend\ServiceManager;
 
 /**
- * @author marcus.gnass
+ * @author
  * @author erdal.mersinlioglu
  */
 class UserModel extends AbstractBaseModel {

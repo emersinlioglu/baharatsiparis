@@ -5,7 +5,7 @@ namespace Ffb\Common\Ldap;
 /**
  *
  * @package FfbCommonLdap
- * @author marcus.gnass
+ * @author
  */
 class DefaultLdapAdapter extends LdapAdapter {
 

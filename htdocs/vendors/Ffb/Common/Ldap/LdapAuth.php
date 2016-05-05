@@ -6,7 +6,7 @@ namespace Ffb\Common\Ldap;
  * Simple class to access an LDAP.
  *
  * @author claus.schunk
- * @author marcus.gnass
+ * @author
  */
 class LdapAuth {
 

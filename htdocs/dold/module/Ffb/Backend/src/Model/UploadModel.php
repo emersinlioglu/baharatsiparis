@@ -8,7 +8,7 @@ use Zend\ServiceManager;
 
 /**
  *
- * @author marcus.gnass
+ * @author
  */
 class UploadModel extends AbstractBaseModel {
 

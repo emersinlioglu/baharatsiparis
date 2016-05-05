@@ -37,7 +37,8 @@ class LoginForm extends AbstractBackendForm {
                 'attributes' => array(
                     'value' => 'sysadmin@4fb.de',
                     'autocomplete' => 'off',
-                    'maxlength' => '255'
+                    'maxlength' => '255',
+                    'class' => 'form-control'
                 )
             ))
             ->add(array(
@@ -49,7 +50,8 @@ class LoginForm extends AbstractBackendForm {
                 'attributes' => array(
                     'value' => 'sysadmin',
                     'autocomplete' => 'off',
-                    'maxlength' => '255'
+                    'maxlength' => '255',
+                    'class' => 'form-control'
                 )
             ))
             ->add(array(
@@ -57,7 +59,7 @@ class LoginForm extends AbstractBackendForm {
                 'type' => 'Submit',
                 'attributes' => array(
                     'value' => 'BTN_LOGIN',
-                    'class' => 'button gray'
+                    'class' => 'btn btn-primary pull-right'
                 ),
             ));
     }

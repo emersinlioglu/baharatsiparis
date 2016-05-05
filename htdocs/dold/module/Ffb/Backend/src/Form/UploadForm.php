@@ -9,7 +9,7 @@ use Zend\InputFilter;
  * to upload multiple files at once. Instead each file will be uploaded through
  * a single Ajax request.
  *
- * @author marcus.gnass
+ * @author
  */
 class UploadForm extends \Ffb\Common\Form\AbstractUploadForm {
 

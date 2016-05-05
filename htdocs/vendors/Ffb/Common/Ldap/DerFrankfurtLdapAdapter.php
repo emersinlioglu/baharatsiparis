@@ -9,7 +9,7 @@ namespace Ffb\Common\Ldap;
  * - mail adresses are not yet considered when filtering or searching
  *
  * @package FfbCommonLdap
- * @author marcus.gnass
+ * @author
  */
 class DerFrankfurtLdapAdapter extends DefaultLdapAdapter {
 

@@ -1,5 +1,5 @@
 <!-- partials/form/input_password.tpl -->
-<div class="row text password">
+<div class="form-group row text password">
 {if $form}
     {assign var=field value=$form->get($fieldName)}
     {if $field->getLabel() neq NULL}{$this->formLabel($field)}{/if}

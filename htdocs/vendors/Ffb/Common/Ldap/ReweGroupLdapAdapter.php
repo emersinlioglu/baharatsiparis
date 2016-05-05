@@ -9,7 +9,7 @@ namespace Ffb\Common\Ldap;
  * - mail adresses are not yet considered when filtering
  *
  * @package FfbCommonLdap
- * @author marcus.gnass
+ * @author
  */
 class ReweGroupLdapAdapter extends DefaultLdapAdapter {
 

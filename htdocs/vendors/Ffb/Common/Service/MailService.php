@@ -29,7 +29,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  * @see DERTMS-526
  * @see http://framework.zend.com/manual/2.1/en/modules/zend.mail.introduction.html
  * @see http://www.zendframeworkmagazin.de/zf/blog/zend-mail-und-zend-mime-mailen-mit-dem-zend-framework-2
- * @author marcus.gnass
+ * @author
  */
 class MailService extends AbstractService {
 

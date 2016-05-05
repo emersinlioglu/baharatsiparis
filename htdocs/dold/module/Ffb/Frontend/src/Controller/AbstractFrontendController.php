@@ -471,9 +471,10 @@ abstract class AbstractFrontendController extends Mvc\Controller\AbstractActionC
         $this->getServiceLocator()
             ->get('ViewHelperManager')
             ->get('headLink')
-            ->prependStylesheet('css/backend/style.css')
-            ->prependStylesheet('css/backend/forms.css')
-            ->prependStylesheet('css/backend/tables.css');
+//            ->prependStylesheet('css/backend/style.css')
+//            ->prependStylesheet('css/backend/forms.css')
+//            ->prependStylesheet('css/backend/tables.css')
+        ;
 
         //logo
         $logoUrl = null;
