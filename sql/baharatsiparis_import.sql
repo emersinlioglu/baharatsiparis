@@ -3,10 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 24. Apr 2016 um 20:22
+-- Erstellungszeit: 24. Apr 2016 um 20:25
 -- Server-Version: 10.1.8-MariaDB
 -- PHP-Version: 5.5.30
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -150,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `attribute_value` (
 DROP TRIGGER IF EXISTS `attribute_value_AFTER_INSERT`;
 DELIMITER $$
 CREATE TRIGGER `attribute_value_AFTER_INSERT` AFTER INSERT ON `attribute_value` FOR EACH ROW BEGIN
-		
+
         -- definitions
         DECLARE now DATETIME;
         set now := NOW();
@@ -182,7 +183,7 @@ CREATE TRIGGER `attribute_value_AFTER_INSERT` AFTER INSERT ON `attribute_value` 
                 `date` = now
 			;
 		END IF;
-        
+
 -- 		IF NOT ISNULL(NEW.`value_max`) THEN
 -- 			-- insert log entry
 -- 			INSERT INTO
@@ -196,7 +197,7 @@ CREATE TRIGGER `attribute_value_AFTER_INSERT` AFTER INSERT ON `attribute_value` 
 --                 `date` = now
 -- 			;
 -- 		END IF;
-        
+
 --         IF NOT ISNULL(NEW.`value_max`) THEN
 -- 			-- insert log entry
 -- 			INSERT INTO
@@ -217,7 +218,7 @@ DELIMITER ;
 DROP TRIGGER IF EXISTS `attribute_value_AFTER_UPDATE`;
 DELIMITER $$
 CREATE TRIGGER `attribute_value_AFTER_UPDATE` AFTER UPDATE ON `attribute_value` FOR EACH ROW BEGIN
-	
+
 	-- definitions
 	DECLARE now 	DATETIME;
 	SET now 		:= NOW();
@@ -247,7 +248,7 @@ CREATE TRIGGER `attribute_value_AFTER_UPDATE` AFTER UPDATE ON `attribute_value` 
 			`date` = now
 		;
 	END IF;
-	
+
 --    IF NEW.`value_max` <> OLD.`value_max` THEN
 --  		INSERT INTO
 --  			attribute_value_log
@@ -260,7 +261,7 @@ CREATE TRIGGER `attribute_value_AFTER_UPDATE` AFTER UPDATE ON `attribute_value` 
 --  			`date` = now
 --  		;
 --  	END IF;
-	
+
 --     IF NEW.`is_inherited` <> OLD.`is_inherited` THEN
 -- 		-- insert log entry
 -- 		INSERT INTO
@@ -1866,6 +1867,7 @@ ALTER TABLE `product_lang`
 ALTER TABLE `template_attribute_group`
   ADD CONSTRAINT `fk_attr_grp_has_template_template1` FOREIGN KEY (`template_id`) REFERENCES `template` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_attr_grp_template_attribute_col1` FOREIGN KEY (`attribute_group_id`) REFERENCES `attribute_group` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -99,8 +99,11 @@ if (isset($_SERVER['REQUEST_URI'])) {
 
     if (substr($_SERVER['REQUEST_URI'], 0, '4') === '/api') {
         $whiteModulesList[] = 'Ffb\Api';
-    } else {
+    } else if (substr($_SERVER['REQUEST_URI'], 0, '6') === '/admin') {
         $whiteModulesList[] = 'Ffb\Backend';
+        $whiteModulesList[] = 'SmartyModule';
+    } else {
+        $whiteModulesList[] = 'Ffb\Frontend';
         $whiteModulesList[] = 'SmartyModule';
     }
 

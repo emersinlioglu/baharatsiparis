@@ -1,0 +1,16 @@
+.products .tooltip-inner {
+    max-width: 350px;
+    /* If max-width does not work, try using width instead */
+    width: 350px;
+}
+.products .form-control-small {
+    width: 50px;
+    /*height: 20px;*/
+}
+.products .table tr td + td {
+    max-width: 120px;
+    word-wrap: break-word;
+}
+.products .table tr.no-border td {
+    border: none;
+}
