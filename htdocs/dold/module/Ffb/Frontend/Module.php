@@ -62,7 +62,7 @@ class Module extends CommonModule {
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src',
-                    'Ffb\Backend' => __DIR__ . '/../Backend/src'
+                    'Ffb\Backend' => __DIR__ . '/../Backend/src',
                 ),
             ),
         );

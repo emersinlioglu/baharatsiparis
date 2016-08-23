@@ -18,7 +18,7 @@ class LoginForm extends AbstractBackendForm {
     public function __construct($name = 'form-login', $options = array()) {
         parent::__construct($name, $options);
 
-        $this->setAttribute('class', 'form-default form-login');
+        $this->setAttribute('class', 'form-default form-login form-signin');
         $this->_setElements();
     }
 
@@ -35,11 +35,14 @@ class LoginForm extends AbstractBackendForm {
                     'label' => 'LBL_EMAIL'
                 ),
                 'attributes' => array(
-                    'value' => 'sysadmin@4fb.de',
+                    'class' => 'form-control',
+                    'value' => '',
                     'autocomplete' => 'off',
                     'maxlength' => '255'
                 )
             ))
+            //sysadmin@4fb.de
+            //sysadmin
             ->add(array(
                 'name' => 'password',
                 'type' => 'Password',
@@ -47,7 +50,8 @@ class LoginForm extends AbstractBackendForm {
                     'label' => 'LBL_PASSWORD'
                 ),
                 'attributes' => array(
-                    'value' => 'sysadmin',
+                    'class' => 'form-control',
+                    'value' => '',
                     'autocomplete' => 'off',
                     'maxlength' => '255'
                 )
@@ -57,7 +61,7 @@ class LoginForm extends AbstractBackendForm {
                 'type' => 'Submit',
                 'attributes' => array(
                     'value' => 'BTN_LOGIN',
-                    'class' => 'button gray'
+                    'class' => 'btn btn-lg btn-primary btn-block'
                 ),
             ));
     }

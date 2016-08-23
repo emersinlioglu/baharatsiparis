@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManager;
 //use DoctrineModule\Options\Authentication as DoctrineAuthentication;
 
 use Ffb\Backend\Entity\LangEntity;
-use Ffb\Frontend\Model;
+use Ffb\Backend\Model;
 
 use Zend\Authentication as ZendAuthentication;
 use Zend\ServiceManager\ServiceLocatorInterface;

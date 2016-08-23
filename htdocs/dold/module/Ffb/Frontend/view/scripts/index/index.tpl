@@ -33,14 +33,14 @@
                                 <td>
                                     {if $prod.productImageUrl}
                                     <img
-                                            title="<img src=&quot;{$prod.productImageUrl}&quot; alt=&quot;Bild&quot; style=&quot;width:200px;&quot;>"
-                                            data-toggle="tooltip"
-                                            data-html="true"
-                                            data-placement="right"
+                                        title="<img src=&quot;{$prod.productImageUrl}&quot; alt=&quot;Bild&quot; style=&quot;width:200px;&quot;>"
+                                        data-toggle="tooltip"
+                                        data-html="true"
+                                        data-placement="right"
 
-                                            src="{$prod.productImageUrl}"
-                                            alt="Bild"
-                                            style="width:25px;">
+                                        src="{$prod.productImageUrl}"
+                                        alt="Bild"
+                                        style="width:25px;">
                                     {/if}
                                 </td>
                                 <td>
@@ -54,7 +54,8 @@
                                     {*<input type="text" name="product[{$prod.productId}]">*}
                                     {*<div class="form-group">*}
                                         {*<label for="beispielFeldEmail1">Email-Adresse</label>*}
-                                        <input type="email" class="form-control form-control-small" placeholder="">
+                                        <input type="amount" 
+                                               class="form-control form-control-small" placeholder="Anzahl">
                                     {*</div>*}
                                 </td>
                             </tr>

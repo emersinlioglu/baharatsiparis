@@ -455,7 +455,7 @@ abstract class AbstractFrontendController extends Mvc\Controller\AbstractActionC
         // get config & values
         $dataConf   = $this->config['module']['data_manager'];
         $dataConf['layout'] = array(
-            'title' => 'Dold-PIM'
+            'title' => 'Gewürze'
         );
         $layoutConf = $dataConf['layout'];
 

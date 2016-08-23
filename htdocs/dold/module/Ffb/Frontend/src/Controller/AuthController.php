@@ -2,9 +2,9 @@
 
 namespace Ffb\Frontend\Controller;
 
-use Ffb\Backend\Authentication\BackendAdapter;
+use Ffb\Frontend\Authentication\FrontendAdapter;
 use Ffb\Backend\Entity;
-use Ffb\Backend\Form;
+use Ffb\Frontend\Form;
 use Ffb\Backend\View\Helper;
 
 use Zend\Authentication\AuthenticationService;
@@ -71,7 +71,7 @@ class AuthController extends AbstractFrontendController {
 
             // create auth service & adapter
             $authService = new AuthenticationService();
-            $authAdapter = new BackendAdapter($this->getServiceLocator(), $username, $password);
+            $authAdapter = new FrontendAdapter($this->getServiceLocator(), $username, $password);
 
             // perform authentication
             // auth service is responsible for persistent storage of identity
